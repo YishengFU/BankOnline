@@ -1,0 +1,403 @@
+<style type="text/css">
+*{
+	margin: 0;
+	padding: 0;
+	
+}
+
+#centre {
+	height: 1000px;
+	width: auto;
+	margin-left:-10px;
+	margin-right:-10px;
+	/*background-image: url('../images/bg.jpg');*/
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: relative;
+	overflow: hidden;
+ 	background-color: RGB(231, 231, 231);
+	
+}
+#head {
+	height: 80px;
+	width: auto;
+	margin-top:-10px;
+	margin-left:-10px;
+	margin-right:-10px;
+	padding-bottom:20px;
+	/*background-image: url('../images/.png');*/
+	background-repeat: no-repeat;
+	background-position: center center;
+	text-align: center;
+	position: relative;
+	background-color: RGB(231, 231, 231);
+}
+#foot {
+	width: auto;
+	height: 200px;
+	margin-left:-10px;
+	margin-right:-10px;
+	background-color:RGB(55,55,55);
+	/*background-image: url('../images/city.png');*/
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: relative;
+}
+/********************************      Head    ********************************************/
+#head .navigateur ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: RGB(17, 129, 72);
+}
+
+.navigateur li {
+    float: left;
+}
+
+.navigateur li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.navigateur li a:hover:not(.active){
+    /*background-color: RGB(12, 108, 69);*/
+}
+
+.navigateur .active {
+    background-color: RGB(12, 108, 69);
+}
+#head .navigateur1 ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: RGB(231, 231, 231);
+}
+
+.navigateur1 li {
+    float: left;
+}
+
+.navigateur1 li a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+.navigateur1 li a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+.navigateur1 li a:hover:not(.active){
+    /*background-color: RGB(12, 108, 69);*/
+}
+
+.navigateur1 .active {
+    background-color: RGB(12, 108, 69);
+}
+.navigateur1 .icon
+{ 
+	margin-bottom:15px;
+	margin-top:7px;
+	margin-left:10px;
+	width:50px; 
+	height:50px;
+	overflow:hidden;
+	position: relative;
+} 
+.navigateur1 .icon img
+{
+	
+	width:100%;
+	position: relative;
+} 
+
+
+#head h2 a {
+    display: block;
+    text-align: center;
+    padding: 0px 20px;
+    text-decoration: none;
+    color: RGB(22, 22, 22);
+}
+
+
+#head .roundRectangle{
+	color: white;
+	text-align:center;
+	border:2px solid RGB(52, 194, 169);
+	padding: 11px 15px;
+	margin-right: 5px;
+	margin-top: 5px;
+	background:RGB(52, 194, 169);
+	width:150px;
+	border-radius:30px;
+	float:right;
+	box-shadow: 2px 1px 1px #888888;
+}
+#head .roundRectangle1{
+	color: white;
+	text-align:center;
+	border:2px solid RGB(33, 122, 77);
+	padding: 11px 15px;
+	margin-top: 5px;
+	margin-left:5px;
+	margin-right: 5px;
+	background:RGB(33, 122, 77);
+	width:230px;
+	border-radius:30px;
+	float:right;
+	box-shadow: 2px 1px 1px #888888;
+}
+
+/********************************   Centre   ********************************************/
+
+
+@keyframes glisser-img {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-300px);
+    }
+}
+#centre .glisser {
+    background-color: rgb(135,183,204) ;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 600px;
+    width: 100%;
+}
+#centre .glisser .panel {
+   
+    height: 100%;
+}
+
+#centre .img{
+    
+    overflow: hidden;
+    position: relative;
+}
+#centre .img .Glisser {
+    background-image: url('../images/bg.jpg');
+    background-size: 1200px 600px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 300%;
+    z-index: 1;
+    animation: glisser-img 15s linear infinite;
+}
+
+#centre .panel-haut {
+	top:0;
+	right:0;
+	width:100%; 
+	height:600px;
+	opacity:0.1;
+	position: absolute;
+	z-index: 1;
+	display:flex;
+	/*background: linear-gradient(to bottom left, rgb(135,183,204) 20%,rgb(97,162,190) 40%,rgb(71,148,179) 60%,rgb(56,141,176) 80%);*/
+	
+}
+.panel-haut .panel-p{
+	flex:1;
+	border:1px solid white;
+	transform: skew(45deg);
+}
+ #p-1{
+	background-color:rgb(115,170,192);
+}
+.panel-haut #p-2{
+	background-color:rgb(78,143,177);
+}
+.panel-haut #p-3{
+	background-color:rgb(71,148,179);
+}
+
+/********************************   Inscription   ********************************************/
+
+
+#centre .glisser .panel-inscription{
+    margin: 0;
+    z-index: 2;
+	background-color: RGB(231, 231, 231);
+	opacity: 0.9;
+	height: 700px;
+	width: 1000px;  
+	position: absolute;
+	background-color: #FFFFFF;
+	top: 20%;
+	left: 10%;
+}
+
+
+.panel-inscription .right{
+	margin: 0;
+    z-index: 3;
+	background-color: RGB(231, 231, 231);
+	opacity: 0.9;
+	height: 500px;
+	width: 380px;  
+	position: absolute;
+	background-color: #FFFFFF;
+	top: 15%;
+	left: 50%;
+	
+}
+
+.panel-inscription .left{
+	margin: 0;
+    z-index: 3;
+	background-color: RGB(231, 231, 231);
+	opacity: 0.9;
+	height: 500px;
+	width: 380px;  
+	position: absolute;
+	background-color: #FFFFFF;
+	top: 15%;
+	left: 10%;
+	/*border-right: 1px solid #ee7700;*/
+}
+
+
+
+.ins-p2 .button {
+	top:30px;
+	width: 60%;
+	height: 45px;
+	background-color: #ee7700;
+	border: none;
+	color: white;
+	margin-top: 49%;
+	margin-left:20%;
+	margin-bottom:10px;
+	font-size: 18px;
+	
+}
+.button:hover
+	{
+	background-color: #CC9933;
+	}
+
+.inscription .ins-p1.institre .p1 {
+	display: inline-block;
+	font-size: 35px;
+	margin-bottom: 0px;
+	width: 86%;
+	text-align: center;
+}
+.panel-inscription .inscription .ins.institre {
+	width: 86%;
+	border-bottom: 1px solid #ee7700;
+	margin-bottom: 60px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.inscription .ins-p1 i {
+	position: absolute;
+	top: 14px;
+	left: 15px;
+}
+.inscription .ins-p1 .textfield {
+	width: 100%;
+	height: 42px;
+	text-indent: 2.5rem;
+}
+.panel-inscription .inscription .ins-p1 {
+	width: 86%;
+	position: relative;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.inscription .ins-radio{
+
+	margin-left:30%;
+	padding-right:30px;
+}
+.ins-p3 a.site {
+	text-decoration: none;
+	font-size: 18px;
+	line-height: 18px;
+	margin-left:65% ;
+	color: #66CCCC;
+	font-style: italic;
+	
+}
+a.site:hover
+	{
+	color:#CC9933;
+	font-size: 20px;
+	}
+	
+/***************************************  foot ************************************************/
+
+#foot .foot1 {
+	top: 2%;
+	right: 65%;
+	width: 300px;
+	height: 200px;
+	margin-left: 10px;
+	margin-right: 40px;
+	margin-top: 10px;
+	margin-right: 10px;
+	position: absolute;
+}
+#foot  .foot-text{
+	color:white;
+	border-left:white solid 2px;
+}
+#foot  .foot-site {
+	word-wrap: break-word; 
+	word-break: normal;
+	color:white;
+	font-size:10px;
+	margin-left:10px;
+}
+#foot  .foot-site a{
+	text-decoration:none;
+	color:RGB(170,170,170);
+}
+#foot  .foot-site a:hover{
+	color:white;
+}
+#foot .foot2 {
+	top: 2%;
+	right: 35%;
+	width: 300px;
+	height: 200px;
+	margin-left: 10px;
+	margin-right: 40px;
+	margin-top: 10px;
+	margin-right: 10px;
+	position: absolute;
+	
+}
+#foot .foot3 {
+	top: 2%;
+	right: 8%;
+	width: 300px;
+	height: 200px;
+	margin-left: 10px;
+	margin-right: 40px;
+	margin-top: 10px;
+	margin-right: 10px;
+	position: absolute;
+	
+}	
+</style>
