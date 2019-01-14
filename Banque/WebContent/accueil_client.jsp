@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>   
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -24,6 +24,13 @@
 		<ul>
 			<li style='float:left'><div class="icon"><img src="images/icon.png"/></div></li>
 			<li style='float:left'><h2><a href="http://localhost:8090/Banque/accueil.jsp">AEDI Banque</a></h2></li>
+			<li style='float:left'><h2>
+						<%String prenom =(String)session.getAttribute("prenom");
+						String nom =(String) session.getAttribute("nom");
+						out.println(prenom);
+						out.println(nom);
+						%>
+			</h2></li>
 			<li style='float:right'><a href="logout"><div class ="roundRectangle1"> Se déconnecter</div></a></li>
 			<li style='float:right'><a href="inscription.jsp"><div class ="roundRectangle">Ouvrir un compte</div></a></li>
 		</ul>

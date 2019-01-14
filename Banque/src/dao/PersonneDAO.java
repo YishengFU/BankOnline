@@ -7,7 +7,6 @@ import java.sql.Statement;
 import java.sql.Types;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.time.LocalDate;
 import main.SQLconnexion;
 import pojo.Employe;
 import pojo.Personne;
@@ -192,10 +191,10 @@ public class PersonneDAO implements DAO<Personne> {
 			this.reqprep.setString(2, mdp);
 			ResultSet resset = this.reqprep.executeQuery();
 			if(resset.next()) {
-				p = new Personne();
-				p.setPseudo(resset.getString("pseudo"));
-				p.setMdp(resset.getString("mdp"));
+				
+				p=PersonneDAO.getInstance().getById(resset.getInt("id_pers"));
 				System.out.println("Login success");
+				return p;
 			}
 			else {
 				System.out.println("Login fail");

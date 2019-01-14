@@ -64,11 +64,9 @@ public class Personne {
 	public String getNom() {
 		return nom;
 	}
-
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-
 	public String getPrenom() {
 		return prenom;
 	}
