@@ -229,7 +229,7 @@
     position: relative;
 }
 #centre .img .Glisser {
-    background-image: url('../images/city2.png');
+    background-image: url('../images/etoile.png');
     background-size: 1400px 600px;
     position: absolute;
     top: 0px;
@@ -237,7 +237,7 @@
     height: 100%;
     width: 500%;
     z-index: 1;
-    animation: glisser-img 14s linear infinite;
+    animation: glisser-img 10s linear infinite;
 }
 
 #centre .panel-haut {

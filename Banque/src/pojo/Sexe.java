@@ -11,8 +11,12 @@ public class Sexe {
 			this.libelle = "Masculin";
 		} else if (id_sexe == 2) {
 			this.id_sexe = id_sexe;
-			this.libelle = "F¨¦minin";
+			this.libelle = "Fï¿½ï¿½minin";
 		}
+	}
+
+	public Sexe() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getId_sexe() {

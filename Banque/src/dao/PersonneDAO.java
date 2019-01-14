@@ -7,7 +7,7 @@ import java.sql.Statement;
 import java.sql.Types;
 import java.time.LocalDate;
 import java.util.ArrayList;
-
+import java.time.LocalDate;
 import main.SQLconnexion;
 import pojo.Employe;
 import pojo.Personne;
@@ -204,8 +204,33 @@ public class PersonneDAO implements DAO<Personne> {
 			System.out.println("SQL Syntaxe Erreur.");
 			System.out.println(sqle.getMessage());
 		}
-		return p;
+		return p;		
 		
 	}
-
+	public boolean isexist(String nom, String prenom,LocalDate date ) throws SQLException {
+		boolean isexist = false;
+		String req = "select * from PERSONNE where nom = ? and prenom = ? and date_naissance =?";
+		try {
+			
+			this.reqprep = SQLconnexion.getInstance().creeConnexion().prepareStatement(req);
+			this.reqprep.setString(1, nom);
+			this.reqprep.setString(2, prenom);
+			this.reqprep.setDate(3, java.sql.Date.valueOf(date));
+			ResultSet resset = this.reqprep.executeQuery();
+			if(resset.next()) {
+				
+				System.out.println("le client a déja exist");
+			}
+			else {
+				System.out.println("L'inscription success");
+			}
+		} catch (SQLException sqle) {
+			System.out.println("SQL Syntaxe Erreur.");
+			System.out.println(sqle.getMessage());
+		}
+		return isexist;
+			
+		
+	}
+	
 }

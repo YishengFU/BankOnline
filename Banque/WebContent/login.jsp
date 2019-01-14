@@ -6,7 +6,23 @@
 		<meta charset = "UTF-8">
 		<title> Login</title>
 		<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css">
-		<link rel="stylesheet" href="css/login.css">		
+		<link rel="stylesheet" href="css/login.css">
+		<script type ="text/javascript">
+	function entree(){
+		var pseudo = document.getElementById("pseudo").value;
+		var motdepasse = document.getElementById("mdp").value;
+		if(pseudo.length==0||pseudo.trim()==""){
+		alert("le champ de pseudo est vide");
+		return false;
+		}
+		if(motdepasse.length==0||motdepasse.trim()=="")
+		{
+		alert("le champ de mot de passe est vide");
+		return false;
+		}
+		return true;
+		}
+</script>		
 	</head>
     <body>
 <div class="head" id="head">
@@ -14,16 +30,16 @@
 		<ul>
   			<li><a href="#home" class="active">Particuliers</a></li>  
     		<li><a href="#">Banque privée</a></li>
-  			<li ><a href="#gestion">Professionnels</a></li>
-  			<li ><a  href='modifier.php'>Entreprises</a></li>
-  	 		<li ><a  onclick='return confirmation()'>Associations</a></li>
+  			<li ><a href="#">Professionnels</a></li>
+  			<li ><a  href="#">Entreprises</a></li>
+  	 		<li ><a  href="#">Associations</a></li>
 		</ul>
 		</div>
 		<div class="navigateur1">
 		<ul>
 			<li style='float:left'><div class="icon"><img src="images/icon.png"/></div></li>
-			<li style='float:left'><h2><a href="file:///Users/zhaopeng/Desktop/ProjetJSP/Test1.html">AEDI Banque</a></h2></li>
-			<li style='float:right'><a href="#"><div class ="roundRectangle">Ouvrir un compte</div></a></li>
+			<li style='float:left'><h2><a href="http://localhost:8090/Banque/accueil.jsp">AEDI Banque</a></h2></li>
+			<li style='float:right'><a href="inscription.jsp"><div class ="roundRectangle">Ouvrir un compte</div></a></li>
     		
 		</ul>
 		</div>
@@ -38,7 +54,7 @@
 	</div>
 	<section class="glisser" id = "glisser">
         <div class="panel-login" id="panel-login">
-        <form action ="Login" method="post">
+        <form action ="Login" method="post" onsubmit="return entree()">
 		<div class="login">
 			<div class="log logtitre">
 				<h2 class="p1">Connexion</h2>

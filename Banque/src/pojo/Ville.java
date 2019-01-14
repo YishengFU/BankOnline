@@ -17,6 +17,10 @@ public class Ville {
 		this.pays = pays;
 	}
 
+	public Ville() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getId_ville() {
 		return id_ville;
 	}

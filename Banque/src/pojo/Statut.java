@@ -15,6 +15,11 @@ public class Statut {
 		this.lib_statut = lib_statut;
 	}
 
+	public Statut() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public int getId_statut() {
 		return id_statut;
 	}

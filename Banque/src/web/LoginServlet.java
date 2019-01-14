@@ -1,6 +1,8 @@
 package web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +17,7 @@ import pojo.Personne;
  * Servlet implementation class LoginServlet
  */
 @WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet { 
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -47,16 +49,28 @@ public class LoginServlet extends HttpServlet {
 	try {			
 			Personne currantPersonne = PersonneDAO.getInstance().login(pseudo, mdp);
 			if(currantPersonne == null) {
-				request.setAttribute("error", "personne exist pas ou mot de passe est incorrect");
-				request.setAttribute("pseudo", pseudo);
-				request.setAttribute("mdp", mdp);
+				//request.setAttribute("error", "personne exist pas ou mot de passe est incorrect");
+				//request.setAttribute("pseudo", pseudo);
+				//request.setAttribute("mdp", mdp);
 				//response.sendRedirect("login-success.jsp");
-				request.getRequestDispatcher("login.jsp").forward(request, response);
+				PrintWriter out = response.getWriter();
+				//request.getRequestDispatcher("login.jsp").forward(request, response);
+				out.flush();
+				out.println("<script>");
+				out.println("alert('Le client exist pas ou mot de passe est incorrect')");
+				out.println("history.back()");
+				out.println("</script>");
 		}
 		else {
 				HttpSession session = request.getSession();
 				session.setAttribute("currantPersonne", currantPersonne);
-				response.sendRedirect("accueil.jsp");
+				PrintWriter out = response.getWriter();
+				out.flush();
+				out.println("<script>");
+				out.println("alert('Login successful')");
+				out.println("window.location.href='accueil_client.jsp'");
+				out.println("</script>");
+				//response.sendRedirect("accueil.jsp");
 		}
 	}
 	catch(Exception e){

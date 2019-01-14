@@ -10,11 +10,27 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-  <servlet-name>LoginServlet</servlet-name>
-  <servlet-class>web.LoginServlet</servlet-class>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>web.LoginServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  <servlet-name>LoginServlet</servlet-name>
-  <url-pattern>/Login</url-pattern>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>InscriptionServlet</servlet-name>
+    <servlet-class>web.InscriptionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InscriptionServlet</servlet-name>
+    <url-pattern>/Inscription</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>LoginoutServlet</servlet-name>
+    <servlet-class>web.LoginoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginoutServlet</servlet-name>
+    <url-pattern>/logout</url-pattern>
   </servlet-mapping>
 </web-app>
