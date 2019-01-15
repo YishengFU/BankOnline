@@ -97,8 +97,10 @@
         		</div>
   		<!--</div>  -->
 			<div class="sous-panel1"><!-- à faire -->
-				
-				
+				<div class = "panel1_p1">
+				</div>
+				<div class = "panel1_p2">
+				</div>
 			</div>
 			
 </div>

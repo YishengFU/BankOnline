@@ -88,7 +88,15 @@
 			<div class="picture"><img src="images/city3.png"/></div>
 		<!-- <div class="panel-contenu"> -->
 				<div class="panel-contenu">
-        			<h2>BIENVENUE 
+        			
+        			
+        		</div>
+  		<!--</div>  -->
+			<div class="sous-panel1"><!-- à faire -->
+			<div class = "tableaffichage">
+			<table align = "center">
+			<caption>
+			<h2>Binvenue,  
 	        			<%
 	        				String prenom =(String)session.getAttribute("prenom");
 							String nom =(String) session.getAttribute("nom");
@@ -99,34 +107,36 @@
 							
 						%>
 					</h2>
-        			<p class = "solide"><%out.println(solde); %></p>
-        		</div>
-  		<!--</div>  -->
-			<div class="sous-panel1"><!-- à faire -->
-			<table scrolling = "yes" align = "center">
+			
+			<p class = "solide">votre solde est de : <%out.println(solde); %></p>
+			</caption>
+			<thead>
+			
 				<tr>
-					<th>Date</th>
-					<th>Compte Source</th>
-					<th>Compte But</th>
-					<th>Montant</th>
-					<th>Libelle d'operation</th>
-					<th>Etat d'operation</th>
-					
+					<th width="100" align="center" valign="middle">Date</th>
+					<th width="100" align="center" valign="middle">Compte Source</th>
+					<th width="100" align="center" valign="middle">Compte But</th>
+					<th width="100" align="center" valign="middle">Montant</th>
+					<th width="350" align="center" valign="middle">Libelle d'operation</th>
+					<th width="100" align="center" valign="middle">Etat d'operation</th>
 				</tr>
+			</thead>
 				
 				<% for(Operation x: al_op){%>
-					<tbody>	<tr>
-						<td><%out.println(x.getDate());%></td>
-						<td><%out.println(x.getCpte_op_but().getId_cpte());%></td>
-						<td><%out.println(x.getCpte_op_src().getId_cpte());%></td>
-						<td><%out.println(x.getMontant());%></td>
-						<td><%out.println(x.getLib_op());%></td>
-						<td><%out.println(x.getSon_etat().getLib_etat());%></td>
-						</tr></tbody>
-					
+				<tbody>
+					<tr>
+						<td width="100" align="center" valign="middle"><%out.println(x.getDate());%></td>
+						<td width="100" align="center" valign="middle"><%out.println(x.getCpte_op_but().getId_cpte());%></td>
+						<td width="100" align="center" valign="middle"><%out.println(x.getCpte_op_src().getId_cpte());%></td>
+						<td width="100" align="center" valign="middle"><%out.println(x.getMontant());%></td>
+						<td width="350" align="center" valign="middle"><%out.println(x.getLib_op());%></td>
+						<td width="100" align="center" valign="middle"><%out.println(x.getSon_etat().getLib_etat());%></td>
+						</tr>
+				</tbody>
 				<%}%>
 			
 			</table>
+			</div>
 			</div>
 		</div>
 <div class="centre2" id="centre2">
