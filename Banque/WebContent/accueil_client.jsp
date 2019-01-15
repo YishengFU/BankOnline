@@ -124,10 +124,9 @@
 						 });
 					 <% }
 			   }catch(Exception e){}
-			   %>
-			   <%
+			  %> 
+			  <% 
 			   }
-			
 			if(select ==2 ){
 				request.setCharacterEncoding("UTF-8");
 				String reqq = "select * from OPERATION";
