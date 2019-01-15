@@ -1,0 +1,682 @@
+<style type="text/css">
+*{
+	margin: 0;
+	padding: 0;	
+}
+.body{
+	height:100%;
+	width: 100%;
+	margin-bottom:-10px;
+}
+#centre {
+	height: 1000px;
+	width: auto;
+	margin-left:-10px;
+	margin-right:-10px;
+	/*background-image: url('../images/city1.png');*/
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: relative;
+	background-color: RGB(231, 231, 231);
+}
+#centre2 {
+	height: 1000px;
+	width: auto;
+	margin-left:-10px;
+	margin-right:-10px;
+	/*background-image: url('../images/city1.png');*/
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: relative;
+	background-color: RGB(248, 248, 248);
+}
+#head {
+	height: 80px;
+	width: auto;
+	margin-top:-10px;
+	margin-left:-10px;
+	margin-right:-10px;
+	padding-bottom:20px;
+	/*background-image: url('../images/.png');*/
+	background-repeat: no-repeat;
+	background-position: center center;
+	text-align: center;
+	position: relative;
+	background-color: RGB(231, 231, 231);
+}
+#foot {
+	width: auto;
+	height: 200px;
+	margin-left:-10px;
+	margin-right:-10px;
+	background-color:RGB(55,55,55);
+	/*background-image: url('../images/city.png');*/
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: relative;
+}
+/********************************      Head    ********************************************/
+#head .navigateur ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: RGB(17, 129, 72);
+}
+
+.navigateur li {
+    float: left;
+}
+
+.navigateur li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.navigateur li a:hover:not(.active){
+    background-color: RGB(12, 108, 69);
+}
+
+.navigateur .active {
+    background-color: RGB(12, 108, 69);
+}
+#head .navigateur1 ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: RGB(231, 231, 231);
+}
+
+.navigateur1 li {
+    float: left;
+}
+
+.navigateur1 li a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+.navigateur1 li a:hover:not(.active){
+    /*background-color: RGB(12, 108, 69);*/
+}
+
+.navigateur1 .active {
+    background-color: RGB(12, 108, 69);
+}
+
+.icon
+{ 
+	margin-bottom:15px;
+	margin-top:7px;
+	margin-left:10px;
+	width:50px; 
+	height:50px;
+	overflow:hidden;
+	position: relative;
+} 
+.icon img
+{
+	
+	width:100%;
+	position: relative;
+} 
+
+#head h2 a {
+	margin-top:-8px;
+    margin-bottom:20px;
+    text-align: center;
+    padding: 0px 20px;
+    text-decoration: none;
+    color: RGB(22, 22, 22);
+}
+
+
+#head .roundRectangle{
+	color: white;
+	text-align:center;
+	border:2px solid RGB(52, 194, 169);
+	padding: 11px 5px;
+	margin-right: 5px;
+	margin-top: 5px;
+	background:RGB(52, 194, 169);
+	width:150px;
+	border-radius:30px;
+	float:right;
+	box-shadow: 2px 1px 1px #888888;
+	z-index: 6;
+}
+#head .roundRectangle1{
+	color: white;
+	text-align:center;
+	border:2px solid RGB(33, 122, 77);
+	padding: 11px 5px;
+	margin-top: 5px;
+	margin-left:5px;
+	margin-right: 5px;
+	background:RGB(33, 122, 77);
+	width:230px;
+	border-radius:30px;
+	float:right;
+	box-shadow: 2px 1px 1px #888888;
+}
+
+
+/********************************   Centre1   ********************************************/
+#centre .panel-carte {  
+  position: fixed;
+  width: 0px;
+  overflow: visible;
+  z-index: 5;
+  padding-top:11px;
+}
+
+.carte-couverture {
+  display: inline-block;
+  float: right;
+  clear: both;
+}
+
+.carte1 {
+  position: relative;
+  left: 45px;
+  padding: 20px 40px 35px 60px;
+  margin: 3px;  
+  x-box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 8px 0 8px -8px rgba(0, 0, 0, 0.5);
+  background: #fff;
+  transition: all 0.3s ease-in-out 0.1s;
+}
+
+.carte1:hover {
+  position: relative;
+  left: 100%;
+  margin-left: -32px;
+  box-shadow: 
+    0 -8px 8px -8px rgba(0, 0, 0, 0.5),
+    0 8px 8px -8px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(to right, RGB(21, 145, 92) , RGB(95, 194, 110));
+  border:2px solid linear-gradient(to right, RGB(21, 145, 92) , RGB(95, 194, 110));
+  border-radius:10px;
+}
+.carte2 {
+  position: relative;
+  left: 45px;
+  padding: 20px 40px 35px 60px;
+  margin: 3px;  
+  x-box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 8px 0 8px -8px rgba(0, 0, 0, 0.5);
+  background: #fff;
+  transition: all 0.3s ease-in-out 0.1s;
+}
+
+.carte2:hover {
+  position: relative;
+  left: 100%;
+  margin-left: -32px;
+  box-shadow: 
+    0 -8px 8px -8px rgba(0, 0, 0, 0.5),
+    0 8px 8px -8px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(to right, RGB(45, 149, 235) , RGB(46, 197, 240));
+  border:2px solid linear-gradient(to right, RGB(45, 149, 235) , RGB(46, 197, 240));
+  border-radius:10px;
+}
+
+.carte3 {
+  position: relative;
+  left: 45px;
+  padding: 20px 40px 35px 60px;
+  margin: 3px;  
+  x-box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 8px 0 8px -8px rgba(0, 0, 0, 0.5);
+  background: #fff;
+  transition: all 0.3s ease-in-out 0.1s;
+}
+
+.carte3:hover {
+  position: relative;
+  left: 100%;
+  margin-left: -32px;
+  box-shadow: 
+    0 -8px 8px -8px rgba(0, 0, 0, 0.5),
+    0 8px 8px -8px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(to right, RGB(129, 84, 166) , RGB(204, 100, 166));
+  border:2px solid linear-gradient(to right, RGB(129, 84, 166) , RGB(204, 100, 166));
+  border-radius:10px;
+}
+
+.carte4 {
+  position: relative;
+  left: 45px;
+  padding: 20px 40px 35px 60px;
+  margin: 3px;  
+  x-box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 8px 0 8px -8px rgba(0, 0, 0, 0.5);
+  background: #fff;
+  transition: all 0.3s ease-in-out 0.1s;
+}
+
+.carte4:hover {
+  position: relative;
+  left: 100%;
+  margin-left: -32px;
+  box-shadow: 
+    0 -8px 8px -8px rgba(0, 0, 0, 0.5),
+    0 8px 8px -8px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(to right, RGB(235, 93, 72) , RGB(235, 143, 70));
+  border:2px solid linear-gradient(to right, RGB(235, 93, 72) , RGB(235, 143, 70));
+  border-radius:10px;
+}
+
+.carte5 {
+  position: relative;
+  left: 45px;
+  padding: 20px 40px 35px 60px;
+  margin: 3px;  
+  x-box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 8px 0 8px -8px rgba(0, 0, 0, 0.5);
+  background: #fff;
+  transition: all 0.3s ease-in-out 0.1s;
+}
+
+.carte5:hover {
+  position: relative;
+  left: 100%;
+  margin-left: -32px;
+  box-shadow: 
+    0 -8px 8px -8px rgba(0, 0, 0, 0.5),
+    0 8px 8px -8px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(to right, RGB(48, 189, 82) , RGB(117, 208, 85));
+  border:2px solid linear-gradient(to right, RGB(48, 189, 82) , RGB(117, 208, 85));
+  border-radius:10px;
+}
+
+.carte6 {
+  position: relative;
+  left: 45px;
+  padding: 20px 40px 35px 60px;
+  margin: 3px;  
+  x-box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 8px 0 8px -8px rgba(0, 0, 0, 0.5);
+  background: #fff;
+  transition: all 0.3s ease-in-out 0.1s;
+}
+
+.carte6:hover {
+  position: relative;
+  left: 100%;
+  margin-left: -32px;
+  box-shadow: 
+    0 -8px 8px -8px rgba(0, 0, 0, 0.5),
+    0 8px 8px -8px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(to right, #F6416C , #FFF687);
+  border:2px solid linear-gradient(to right, #F6416C , #FFF687);
+  border-radius:10px;
+}
+.carte-contenu {
+  display: inline-block;
+  color: #fff;
+  font-family: 'Droid Sans', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
+  
+}
+
+/*.carte > .carte-contenu{
+	display:none;
+	width:30px;
+	
+}
+.carte > .carte-contenu:hover{
+	visibility: visible;
+}*/
+
+.bg-01 { 
+  background: RGB(95, 194, 110);
+  border:1px RGB(95, 194, 110);
+  border-radius:10px;
+}
+.bg-02 { 
+  background: RGB(46, 197, 240); 
+  border:1px RGB(46, 197, 240);
+  border-radius:10px;
+}
+.bg-03 { 
+  background: RGB(204, 100, 166); 
+  border:1px solid RGB(204, 100, 166);
+  border-radius:10px;
+  }
+.bg-04 { 
+  background: RGB(235, 143, 70);
+  border:1px RGB(235, 143, 70);
+  border-radius:10px; 
+}
+.bg-05 { 
+  background: RGB(117, 208, 85); 
+  border:1px RGB(117, 208, 85);
+  border-radius:10px;  
+}
+.bg-06 { 
+  background: #FFF687;
+  border:1px #FFF687;
+  border-radius:10px; 
+}
+
+/*#centre .panel {
+	height: 530px;
+	width: 800px;  
+	position: absolute;
+	background-color: RGB(241, 241, 241);
+	margin-right:10px;
+	margin-bottom: 100px;
+	padding-bottom: 20px;
+  	opacity:0;
+	top: 15%;
+	right: 20%;
+	z-index: 4;
+}*/
+/*#centre .panel-contenu{
+	top: 2%;
+	right: 58%;
+	width: 400px;
+	height: 250px;
+	background-color: RGB(255, 255, 255);
+	position: absolute;
+	opacity: 0.4;
+	
+}*/
+#centre .panel-contenu{
+	top: 3%;
+	right: 45%;
+	width: 550px;
+	height: auto;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-right: 10px;
+	font-size: 14px;
+	color:white;
+	position: absolute;
+	z-index: 8;
+}
+
+.picture
+{ 
+	
+	width:100%; 
+	height:600px;
+	overflow:hidden;
+} 
+.picture img
+{
+	
+	width:100%;
+	opacity: 0.95;
+} 
+#centre .sous-panel1 {
+	top: 20%;
+	left: 10%;
+	width: 1000px;
+	height: 630px;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-right: 10px;
+	font-size: 14px;
+	background-color: RGB(255, 255, 255);
+	position: absolute;
+	border:2px solid linear-gradient(to right, RGB(21, 145, 92) , RGB(95, 194, 110));
+	border-radius:10px;
+	box-shadow: 2px 2px 2px #888888;
+}
+
+
+/***************************************  Centre 2************************************************/
+#centre2 .centre2-contenu{
+	
+	right: 51%;
+	width: auto;
+	height: auto;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-right: 10px;
+	font-size: 14px;
+	color:RGB(66,66,66);
+	position: absolute;
+}
+#centre2 .centre2-panel1 {
+	top: 10%;
+	right: 50%;
+	width: 580px;
+	height: 400px;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-right: 10px;
+	font-size: 14px;
+	background-color: RGB(255, 255, 255);
+	position: absolute;
+	border:1px solid linear-gradient(to right, RGB(48, 189, 82) , RGB(117, 208, 85));
+	border-radius:10px;
+	box-shadow: 1px 2px 2px 2px #888888;
+	z-index: 4;
+}
+#centre2 .centre2-panel2 {
+	top: 10%;
+	right: 3.5%;
+	width: 580px;
+	height: 400px;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-right: 10px;
+	font-size: 14px;
+	background-color: RGB(255, 255, 255);
+	position: absolute;
+	border:1px solid linear-gradient(to bottom right, RGB(129, 84, 166) , RGB(204, 100, 166));
+	border-radius:10px;
+	box-shadow: 1px 2px 2px 2px #888888;
+}
+#centre2 .centre2-panel3 {
+	top: 55%;
+	right: 3.8%;
+	width: 1180px;
+	height: 400px;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-right: 10px;
+	font-size: 14px;
+	background-color: RGB(255, 255, 255);
+	position: absolute;
+	border:1px solid linear-gradient(to right, RGB(21, 145, 92) , RGB(95, 194, 110));
+	border-radius:10px;
+	box-shadow: 1px 2px 2px 2px #888888;
+}
+
+
+#centre2 .centre2-text{
+	top:1%;
+	left:2%;
+	color:white;
+	font-family:normal;
+	z-index: 6;
+	position: absolute;
+}
+
+
+#centre2 .centre2-picture { 
+	
+	top: 10%;
+	right: 50%;
+	width: 580px;
+	height: 280px;
+	overflow:hidden;
+} 
+.centre2-picture img
+{
+	
+	width:100%;
+	opacity: 0.95;
+	border:1px solid linear-gradient(to right, RGB(21, 145, 92) , RGB(95, 194, 110));
+	border-radius:10px;
+	box-shadow: 1px 2px 2px 2px #888888;
+} 
+
+#centre2 .centre2-picture2 { 
+	
+	top: 10%;
+	right: 5%;
+	width: 580px;
+	height: 280px;
+	overflow:hidden;
+	z-index: 5;
+	
+} 
+.centre2-picture2 img
+{
+	
+	width:100%;
+	opacity: 0.95;
+	border:1px solid linear-gradient(to right, RGB(21, 145, 92) , RGB(95, 194, 110));
+	border-radius:10px;
+	box-shadow: 1px 2px 2px 2px #888888;
+} 
+#centre2 .centre2-panel1-roundRectangle{
+	text-align:center;
+	background: linear-gradient(to right, RGB(48, 189, 82) , RGB(117, 208, 85));
+	border:1px solid linear-gradient(to right, RGB(48, 189, 82) , RGB(117, 208, 85));
+	padding: 10px 15px;
+	margin-right: 30px;
+	margin-top: 50px;
+	width:125px;
+	border-radius:30px;
+	position: absolute;
+	left:35%;
+	box-shadow: 2px 1px 1px #888888;
+}
+#centre2 .centre2-panel1-roundRectangle a{
+	text-decoration: none;
+	color: white;
+}
+
+
+#centre2 .centre2-panel2-roundRectangle{
+	text-align:center;
+	background: linear-gradient(to right, RGB(129, 84, 166) , RGB(204, 100, 166));
+	border:1px solid linear-gradient(to right, RGB(129, 84, 166) , RGB(204, 100, 166));
+	padding: 10px 15px;
+	margin-right: 5px;
+	margin-top: 50px;
+	width:125px;
+	border-radius:30px;
+	position: absolute;
+	left:35%;
+	box-shadow: 2px 1px 1px #888888;
+}
+#centre2 .centre2-panel2-roundRectangle a{
+	text-decoration: none;
+	color: white;
+}
+#centre2 .affichage
+{	position: relative;
+	width: 580px;
+	height: 280px;
+	top:0px;
+	left:0px;
+	list-style-type:none;
+	border:1px solid linear-gradient(to bottom right, RGB(129, 84, 166) , RGB(204, 100, 166));
+	border-radius:10px;
+}
+
+.affichage:hover
+{
+	cursor: pointer;
+} 
+
+.affichage span{display:none;}
+.affichage:hover span
+{ 	
+	display:block;
+	position: absolute;
+	bottom:0px;
+	width:100%;
+	height:auto;
+	background-color: white;
+	color:black;
+	z-index:2;
+	line-height:30px;
+	filter:alpha(opacity=60);
+	-moz-opacity:0.5;
+	opacity: 0.7;
+	text-align:center;
+}
+
+.span1
+{
+	font-size:15px;
+	font-family:Arial;
+}
+
+/***************************************  foot ************************************************/
+
+#foot .foot1 {
+	top: 2%;
+	right: 65%;
+	width: 300px;
+	height: 200px;
+	margin-left: 10px;
+	margin-right: 40px;
+	margin-top: 10px;
+	margin-right: 10px;
+	position: absolute;
+}
+#foot  .foot-text{
+	color:white;
+	border-left:white solid 2px;
+}
+#foot  .foot-site {
+	word-wrap: break-word; 
+	word-break: normal;
+	color:white;
+	font-size:10px;
+	margin-left:10px;
+}
+#foot  .foot-site a{
+	text-decoration:none;
+	color:RGB(170,170,170);
+}
+#foot  .foot-site a:hover{
+	color:white;
+}
+#foot .foot2 {
+	top: 2%;
+	right: 35%;
+	width: 300px;
+	height: 200px;
+	margin-left: 10px;
+	margin-right: 40px;
+	margin-top: 10px;
+	margin-right: 10px;
+	position: absolute;
+	
+}
+#foot .foot3 {
+	top: 2%;
+	right: 8%;
+	width: 300px;
+	height: 200px;
+	margin-left: 10px;
+	margin-right: 40px;
+	margin-top: 10px;
+	margin-right: 10px;
+	position: absolute;
+	
+}	
+</style>

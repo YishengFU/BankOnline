@@ -19,6 +19,9 @@ public class Compte_epargne extends Compte {
 		this.periode = periode;
 	}
 
+	public Compte_epargne() {
+		// TODO Auto-generated constructor stub
+	}
 	public double getPrime() {
 		return prime;
 	}

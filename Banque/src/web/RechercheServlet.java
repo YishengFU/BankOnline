@@ -2,6 +2,7 @@ package web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,22 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.CompteDAO;
-import dao.PersonneDAO;
-import pojo.Compte_epargne;
-import pojo.Personne;
-
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class RechercheServlet
  */
-@WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet { 
+@WebServlet("/RechercheServlet")
+public class RechercheServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public RechercheServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,46 +31,25 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		this.doPost(request,response);
+		doPost(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//doGet(request, response);
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
-		String  pseudo = request.getParameter("pseudo");
-		String mdp = request.getParameter("mdp");
-		
-		
+		int select = Integer.parseInt(request.getParameter("select"));		
 	try {			
-			Personne currantPersonne = PersonneDAO.getInstance().login(pseudo, mdp);
 			
-			if(currantPersonne == null) {
-				PrintWriter out = response.getWriter();
-				out.flush();
-				out.println("<script>");
-				out.println("alert('Le client exist pas ou mot de passe est incorrect')");
-				out.println("history.back()");
-				out.println("</script>");
-				
-				}
-			else {
 				HttpSession session = request.getSession(false);
 				if(session!=null) {
-					//Compte_epargne comptePersonne = (Compte_epargne) CompteDAO.getInstance().getById(currantPersonne.getId_pers());					
-					PrintWriter out = response.getWriter();
-					session.setAttribute("nom", currantPersonne.getNom());
-					session.setAttribute("prenom", currantPersonne.getPrenom());
-					//session.setAttribute("solde",comptePersonne.getSolde());
-					out.flush();
-					out.println("<script>");
-					out.println("alert('Login successful')");
-					out.println("window.location.href='accueil_client.jsp'");
-					out.println("</script>");
-					//this.getServletContext().getRequestDispatcher("/accueil_client.jsp").forward(request, response);  
-					//response.sendRedirect("accueil.jsp");
+				
+					session.setAttribute("select", select);
+					this.getServletContext().getRequestDispatcher("/accueil_client.jsp").forward(request, response);  
 				}
 				else {
 					
@@ -85,7 +60,7 @@ public class LoginServlet extends HttpServlet {
 					out.println("window.location.href='accueil.jsp'");
 					out.println("</script>");
 				}
-			}
+			
 	}
 	catch(Exception e){
 			e.printStackTrace();
@@ -94,3 +69,4 @@ public class LoginServlet extends HttpServlet {
 	
 
 }
+

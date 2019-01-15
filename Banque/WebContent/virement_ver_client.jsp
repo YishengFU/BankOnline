@@ -1,17 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page import="main.SQLconnexion" %>
-<%@ page import="java.io.*,java.util.*,java.sql.*"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>       
+    pageEncoding="UTF-8"%>   
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<head>
 		<meta charset = "UTF-8">
-		<title>Bienvenue</title>
+		<title>Virement_Vers</title>
 		<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css">
-		<link rel="stylesheet" type="text/css" href="./css/accueil_client.css">	
+		<link rel="stylesheet" type="text/css" href="./css/virement_client.css">	
 	</head>
     <body>
 <div class="head" id="head">
@@ -91,10 +87,8 @@
 	        			<%
 	        				String prenom =(String)session.getAttribute("prenom");
 							String nom =(String) session.getAttribute("nom");
-							double solde =(double) session.getAttribute("solde");
 							out.println(prenom);
 							out.println(nom);
-							out.println(solde);
 						%>
 					</h2>
         			<p>Des solutions adaptées pour tous besoins : gestion et</p>
@@ -103,61 +97,8 @@
         		</div>
   		<!--</div>  -->
 			<div class="sous-panel1"><!-- à faire -->
-			<form action ="recherche" method="post">
-			<select class = "select" name="select" id = "select">
-				<option selected = "" value = "">par 1</option>
-				<option value = "">par 2</option>
-				<option value = "">par 3</option>
-			</select>
-			</form>
-			<table width="100%" >
-			<%
-			int select =(int)session.getAttribute("select");
-			if(select ==1 ){
-				request.setCharacterEncoding("UTF-8");
-				String reqq = "select * from OPERATION";
-			try{
-			        PreparedStatement ps = SQLconnexion.getInstance().creeConnexion().prepareStatement(reqq);
-			        ResultSet rs = ps.executeQuery();
-			        while(rs.next()){%>       
-							<option value='<%=rs.getInt("id_statut")%>'><%=rs.getString("lib_statut")%></option>;
-						 });
-					 <% }
-			   }catch(Exception e){}
-			   %>
-			   <%
-			   }
-			
-			if(select ==2 ){
-				request.setCharacterEncoding("UTF-8");
-				String reqq = "select * from OPERATION";
-			try{
-			        PreparedStatement ps = SQLconnexion.getInstance().creeConnexion().prepareStatement(reqq);
-			        ResultSet rs = ps.executeQuery();
-			        while(rs.next()){%>       
-							<option value='<%=rs.getInt("id_statut")%>'><%=rs.getString("lib_statut")%></option>;
-						 });
-					 <%}
-			   }catch(Exception e){}
- 				%>
- 				<%
-			   }
-			   if(select ==3 ){
-					request.setCharacterEncoding("UTF-8");
-					String reqq = "select * from OPERATION";
-				try{
-				        PreparedStatement ps = SQLconnexion.getInstance().creeConnexion().prepareStatement(reqq);
-				        ResultSet rs = ps.executeQuery();
-				        while(rs.next()){%>       
-								<option value='<%=rs.getInt("id_statut")%>'><%=rs.getString("lib_statut")%></option>;
-							 });
-						 <%}
-				   }catch(Exception e){} 
-				   %>
-				   <%
-				   }
-			%>
-			</table>
+				
+				
 			</div>
 			
 </div>

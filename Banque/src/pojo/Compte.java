@@ -30,7 +30,9 @@ public abstract class Compte {
 		this.solde = solde;
 		this.date_creation = date_creation;
 	}
-
+	public Compte() {
+		
+	}
 	public int getId_cpte() {
 		return id_cpte;
 	}
