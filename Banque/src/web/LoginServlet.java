@@ -2,6 +2,8 @@ package web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.CompteDAO;
 import dao.PersonneDAO;
+import pojo.Compte;
 import pojo.Compte_epargne;
 import pojo.Personne;
 
@@ -63,11 +66,13 @@ public class LoginServlet extends HttpServlet {
 			else {
 				HttpSession session = request.getSession(false);
 				if(session!=null) {
-					//Compte_epargne comptePersonne = (Compte_epargne) CompteDAO.getInstance().getById(currantPersonne.getId_pers());					
+					//Compte comptePersonne = CompteDAO.getInstance().getById(currantPersonne.getId_pers());					
+					ArrayList<Compte> al=CompteDAO.getInstance().findById_pers(currantPersonne.getId_pers());
+			
 					PrintWriter out = response.getWriter();
 					session.setAttribute("nom", currantPersonne.getNom());
 					session.setAttribute("prenom", currantPersonne.getPrenom());
-					//session.setAttribute("solde",comptePersonne.getSolde());
+					session.setAttribute("solde",al.get(0).getSolde());
 					out.flush();
 					out.println("<script>");
 					out.println("alert('Login successful')");
@@ -91,6 +96,4 @@ public class LoginServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
-	
-
 }

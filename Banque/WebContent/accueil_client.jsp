@@ -91,7 +91,7 @@
 	        			<%
 	        				String prenom =(String)session.getAttribute("prenom");
 							String nom =(String) session.getAttribute("nom");
-							double solde =(double) session.getAttribute("solde");
+							double solde = (double) session.getAttribute("solde");
 							out.println(prenom);
 							out.println(nom);
 							out.println(solde);
@@ -103,60 +103,8 @@
         		</div>
   		<!--</div>  -->
 			<div class="sous-panel1"><!-- à faire -->
-			<form action ="recherche" method="post">
-			<select class = "select" name="select" id = "select">
-				<option selected = "" value = "">par 1</option>
-				<option value = "">par 2</option>
-				<option value = "">par 3</option>
-			</select>
-			</form>
-			<table width="100%" >
-			<%
-			int select =(int)session.getAttribute("select");
-			if(select ==1 ){
-				request.setCharacterEncoding("UTF-8");
-				String reqq = "select * from OPERATION";
-			try{
-			        PreparedStatement ps = SQLconnexion.getInstance().creeConnexion().prepareStatement(reqq);
-			        ResultSet rs = ps.executeQuery();
-			        while(rs.next()){%>       
-							<option value='<%=rs.getInt("id_statut")%>'><%=rs.getString("lib_statut")%></option>;
-						 });
-					 <% }
-			   }catch(Exception e){}
-			  %> 
-			  <% 
-			   }
-			if(select ==2 ){
-				request.setCharacterEncoding("UTF-8");
-				String reqq = "select * from OPERATION";
-			try{
-			        PreparedStatement ps = SQLconnexion.getInstance().creeConnexion().prepareStatement(reqq);
-			        ResultSet rs = ps.executeQuery();
-			        while(rs.next()){%>       
-							<option value='<%=rs.getInt("id_statut")%>'><%=rs.getString("lib_statut")%></option>;
-						 });
-					 <%}
-			   }catch(Exception e){}
- 				%>
- 				<%
-			   }
-			   if(select ==3 ){
-					request.setCharacterEncoding("UTF-8");
-					String reqq = "select * from OPERATION";
-				try{
-				        PreparedStatement ps = SQLconnexion.getInstance().creeConnexion().prepareStatement(reqq);
-				        ResultSet rs = ps.executeQuery();
-				        while(rs.next()){%>       
-								<option value='<%=rs.getInt("id_statut")%>'><%=rs.getString("lib_statut")%></option>;
-							 });
-						 <%}
-				   }catch(Exception e){} 
-				   %>
-				   <%
-				   }
-			%>
-			</table>
+			
+			
 			</div>
 			
 </div>

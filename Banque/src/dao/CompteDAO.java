@@ -169,5 +169,35 @@ public class CompteDAO implements DAO<Compte> {
 		}
 		return this.al;
 	}
-
+	public ArrayList<Compte> findById_pers(int id) {
+		  String req = "select * from COMPTE where id_pers=?";
+		  this.al.clear();// vider ArrayList
+		  try {
+		   this.reqprep = SQLconnexion.getInstance().creeConnexion().prepareStatement(req);
+		   this.reqprep.setInt(1, id);
+		   ResultSet resset = this.reqprep.executeQuery();
+		   while (resset.next()) {
+		    int res1 = resset.getInt("id_cpte");
+		    Personne res2 = PersonneDAO.getInstance().getById(id);
+		    int id_type_cpte = resset.getInt("id_type_cpte");
+		    Type_compte res3 = Type_compteDAO.getInstance().getById(id_type_cpte);
+		    Statut_compte res4 = Statut_compteDAO.getInstance().getById(resset.getInt("id_statut_cpte"));
+		    double res5 = resset.getDouble("solde");
+		    double res6 = resset.getDouble("montant_decouvert");
+		    LocalDate res7 = resset.getDate("date_creation").toLocalDate();
+		    if (id_type_cpte == 1) {// compte courant
+		     this.al.add(new Compte_courant(res1, res2, res3, res4, res5, res7, res6));
+		    } else if (id_type_cpte == 2) {// compte epargne
+		     double prime = 0;
+		     int periode = 0;
+		     this.al.add(new Compte_epargne(res1, res2, res3, res4, res5, res7, prime, periode));
+		    }
+		   }
+		   return this.al;
+		  } catch (SQLException sqle) {
+		   System.out.println("SQL Syntaxe Erreur.");
+		   System.out.println(sqle.getMessage());
+		  }
+		  return this.al;
+		 }
 }
