@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="main.SQLconnexion" %>
+<%@ page import="pojo.Operation" %>
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>       
+
+      
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -92,22 +93,42 @@
 	        				String prenom =(String)session.getAttribute("prenom");
 							String nom =(String) session.getAttribute("nom");
 							double solde = (double) session.getAttribute("solde");
+							ArrayList<Operation> al_op= (ArrayList<Operation>) session.getAttribute("operations");
 							out.println(prenom);
 							out.println(nom);
-							out.println(solde);
+							
 						%>
 					</h2>
-        			<p>Des solutions adaptées pour tous besoins : gestion et</p>
-        			<p>ouverture de compte en ligne, simulation de crédit, assurance,</p>
-        			<p>épargne… une banque présente à vos côtés au quotidien.</p>
+        			<p class = "solide"><%out.println(solde); %></p>
         		</div>
   		<!--</div>  -->
 			<div class="sous-panel1"><!-- à faire -->
+			<table scrolling = "yes" align = "center">
+				<tr>
+					<th>Date</th>
+					<th>Compte Source</th>
+					<th>Compte But</th>
+					<th>Montant</th>
+					<th>Libelle d'operation</th>
+					<th>Etat d'operation</th>
+					
+				</tr>
+				
+				<% for(Operation x: al_op){%>
+					<tbody>	<tr>
+						<td><%out.println(x.getDate());%></td>
+						<td><%out.println(x.getCpte_op_but().getId_cpte());%></td>
+						<td><%out.println(x.getCpte_op_src().getId_cpte());%></td>
+						<td><%out.println(x.getMontant());%></td>
+						<td><%out.println(x.getLib_op());%></td>
+						<td><%out.println(x.getSon_etat().getLib_etat());%></td>
+						</tr></tbody>
+					
+				<%}%>
 			
-			
+			</table>
 			</div>
-			
-</div>
+		</div>
 <div class="centre2" id="centre2">
 		<div class="centre2-contenu">
         			<h2>MA BANQUE EN PRATIQUE</h2>

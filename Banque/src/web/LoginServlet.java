@@ -12,9 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.CompteDAO;
+import dao.OperationDAO;
 import dao.PersonneDAO;
 import pojo.Compte;
-import pojo.Compte_epargne;
+import pojo.Operation;
 import pojo.Personne;
 
 /**
@@ -68,11 +69,14 @@ public class LoginServlet extends HttpServlet {
 				if(session!=null) {
 					//Compte comptePersonne = CompteDAO.getInstance().getById(currantPersonne.getId_pers());					
 					ArrayList<Compte> al=CompteDAO.getInstance().findById_pers(currantPersonne.getId_pers());
-			
+					ArrayList<Operation> al_op=OperationDAO.getInstance().findById_cpte(currantPersonne.getId_pers());
 					PrintWriter out = response.getWriter();
 					session.setAttribute("nom", currantPersonne.getNom());
 					session.setAttribute("prenom", currantPersonne.getPrenom());
 					session.setAttribute("solde",al.get(0).getSolde());
+					//session.setAttribute("operations", al_op.get(0).toString());
+					session.setAttribute("operations", al_op);
+					
 					out.flush();
 					out.println("<script>");
 					out.println("alert('Login successful')");

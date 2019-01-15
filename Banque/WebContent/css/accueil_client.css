@@ -8,6 +8,14 @@
 	width: 100%;
 	margin-bottom:-10px;
 }
+tbody{
+	display : block;
+	overflow-y : auto;
+	overflow-x : hidden;
+}
+thead, tr {
+	display : block;
+}
 #centre {
 	height: 1000px;
 	width: auto;

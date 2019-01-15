@@ -137,11 +137,40 @@ public class OperationDAO implements DAO<Operation> {
 				Etat_operation res8 = Etat_operationDAO.getInstance().getById(resset.getInt("id_etat"));
 				this.al.add(new Operation(res1, res2, res3, res4, res5, res6, res7, res8));
 			}
+			return this.al;
 		} catch (SQLException sqle) {
 			System.out.println("SQL Syntaxe Erreur.");
 			System.out.println(sqle.getMessage());
 		}
 		return this.al;
 	}
+	
+	public ArrayList<Operation> findById_cpte(int id) {
+		String req = "select * from COMPTE c, OPERATION o where c.id_pers=? and (c.id_cpte=o.cpte_op_src or"
+				+" c.id_cpte=o.cpte_op_but)";
+		this.al.clear();// vider ArrayList
+		try {
+			this.reqprep = SQLconnexion.getInstance().creeConnexion().prepareStatement(req);
+			this.reqprep.setInt(1, id);
+			ResultSet resset = this.reqprep.executeQuery();
+			while (resset.next()) {
+				int res1 = resset.getInt("id_op");
+				Compte res2 = CompteDAO.getInstance().getById(resset.getInt("cpte_op_src"));
+				Compte res3 = CompteDAO.getInstance().getById(resset.getInt("cpte_op_but"));
+				Type_operation res4 = Type_operationDAO.getInstance().getById(resset.getInt("id_type_op"));
+				String res5 = resset.getString("lib_op");
+				double res6 = resset.getDouble("montant");
+				LocalDate res7 = resset.getDate("date").toLocalDate();
+				Etat_operation res8 = Etat_operationDAO.getInstance().getById(resset.getInt("id_etat"));
+				this.al.add(new Operation(res1, res2, res3, res4, res5, res6, res7, res8));
+			}
+			return this.al;
+		} catch (SQLException sqle) {
+			System.out.println("SQL Syntaxe Erreur.");
+			System.out.println(sqle.getMessage());
+		}
+		return this.al;
+	}
+	
 
 }
