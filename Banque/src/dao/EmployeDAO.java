@@ -157,4 +157,24 @@ public class EmployeDAO implements DAO<Employe> {
 		return this.al;
 	}
 
+	public boolean estEmploye(String pseudo_emp, String mdp_emp) {
+		boolean employe = false;
+		String req = "select * from EMPLOYE where pseudo_emp=? and mdp_emp=?";
+		try {
+			this.reqprep = SQLconnexion.getInstance().creeConnexion().prepareStatement(req);
+			this.reqprep.setString(1, pseudo_emp);
+			this.reqprep.setString(2, mdp_emp);
+			ResultSet resset = this.reqprep.executeQuery();
+			if (resset.next()) {
+				employe = true;
+				System.out.println("C'est un employe");
+			} else {
+				System.out.println("Ce n'est pas un employe");
+			}
+		} catch (SQLException sqle) {
+			System.out.println("SQL Syntaxe Erreur.");
+			System.out.println(sqle.getMessage());
+		}
+		return employe;
+	}
 }

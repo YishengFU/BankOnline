@@ -72,7 +72,17 @@
 			<div class="log-p2">
 				<input type="submit" class="button" name ="valider" value="valider" onclick="return entree()">
 			</div>
-			<div class="log-p3"><a class="site" href="inscriptionform.jsp">inscription</a></div> 
+			<div class="log-p3">
+				
+				<input type = "radio" class = "r1" name = "typeclient" value = "1" checked="checked"> Client
+			
+			</div>
+			<div class="log-p4">
+				
+				<input type = "radio" class = "r2" name = "typeclient" value = "2"> Administrateur
+			
+			</div> 
+			
 		</div>	
 	</form>
 	</div>	

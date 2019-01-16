@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.CompteDAO;
+import dao.EmployeDAO;
 import dao.OperationDAO;
 import dao.PersonneDAO;
 import pojo.Compte;
@@ -50,7 +51,7 @@ public class LoginServlet extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		String  pseudo = request.getParameter("pseudo");
 		String mdp = request.getParameter("mdp");
-		
+		int typeclient = Integer.parseInt(request.getParameter("typeclient"));
 		
 	try {			
 			Personne currantPersonne = PersonneDAO.getInstance().login(pseudo, mdp);
@@ -67,23 +68,44 @@ public class LoginServlet extends HttpServlet {
 			else {
 				HttpSession session = request.getSession(false);
 				if(session!=null) {
-					//Compte comptePersonne = CompteDAO.getInstance().getById(currantPersonne.getId_pers());					
+					if(typeclient == 1) {
+					EmployeDAO.getInstance().getById(currantPersonne.getId_pers());					
 					ArrayList<Compte> al=CompteDAO.getInstance().findById_pers(currantPersonne.getId_pers());
 					ArrayList<Operation> al_op=OperationDAO.getInstance().findById_cpte(currantPersonne.getId_pers());
 					PrintWriter out = response.getWriter();
+					session.setAttribute("id_pers",currantPersonne.getId_pers());
 					session.setAttribute("nom", currantPersonne.getNom());
 					session.setAttribute("prenom", currantPersonne.getPrenom());
 					session.setAttribute("solde",al.get(0).getSolde());
-					//session.setAttribute("operations", al_op.get(0).toString());
 					session.setAttribute("operations", al_op);
 					
 					out.flush();
 					out.println("<script>");
 					out.println("alert('Login successful')");
-					out.println("window.location.href='accueil_client.jsp'");
+					out.println("window.location.href='compte_client.jsp'");
 					out.println("</script>");
-					//this.getServletContext().getRequestDispatcher("/accueil_client.jsp").forward(request, response);  
-					//response.sendRedirect("accueil.jsp");
+					
+					}
+					if(typeclient==2){
+						
+						EmployeDAO.getInstance().getById(currantPersonne.getId_pers());					
+						ArrayList<Compte> al=CompteDAO.getInstance().findById_pers(currantPersonne.getId_pers());
+						ArrayList<Operation> al_op=OperationDAO.getInstance().findById_cpte(currantPersonne.getId_pers());
+						PrintWriter out = response.getWriter();
+						session.setAttribute("id_pers",currantPersonne.getId_pers());
+						session.setAttribute("nom", currantPersonne.getNom());
+						session.setAttribute("prenom", currantPersonne.getPrenom());
+						session.setAttribute("solde",al.get(0).getSolde());
+						session.setAttribute("operations", al_op);
+						
+						out.flush();
+						out.println("<script>");
+						out.println("alert('Login successful')");
+						out.println("window.location.href='accueil_employe.jsp'");
+						out.println("</script>");
+						
+						}
+					
 				}
 				else {
 					

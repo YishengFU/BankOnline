@@ -6,9 +6,9 @@
 <head>
 	<head>
 		<meta charset = "UTF-8">
-		<title> Accueil</title>
+		<title> Compte</title>
 		<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css">
-		<link rel="stylesheet" type="text/css" href="./css/accueil.css">	
+		<link rel="stylesheet" type="text/css" href="./css/compte_client.css">	
 	</head>
     <body>
 <div class="head" id="head">
@@ -84,84 +84,75 @@
 			<div class="picture"><img src="images/city3.png"/></div>
 		<!-- <div class="panel-contenu"> -->
 				<div class="panel-contenu">
-        			<h2>BIENVENUE SUR MABANQUE</h2>
-        			<p>Des solutions adaptées pour tous besoins : gestion et</p>
-        			<p>ouverture de compte en ligne, simulation de crédit, assurance,</p>
-        			
+        			<center><h1>Binvenue
+        				<i><%
+	        				String prenom =(String)session.getAttribute("prenom");
+							String nom =(String) session.getAttribute("nom");
+							out.println(prenom);
+							out.println(nom);
+						%>
+						</i>
+        			</h1>
+      			</center>
         		</div>
   		<!--</div>  -->
 			<div class="sous-panel1">
 				<div class="sous-panel1-fils1">
 				<br>
-				<div class="text"><center>Jusqu'au 2 Janvier 2019</center></div>
+				<div class="text"><center></center></div>
 				
 				<br>
 				<br>
 				<br>
 				<div class="text"><center><h2>Cartes bancaires :</center></h2></div>
-				<div class="text"><center><h2>-50% pendant 1 an<sup>*</sup></h2></center></div>
+				<div class="text"><center><h2><% String libelle = (String) session.getAttribute("libelle"); out.println(libelle); %></h2></center></div>
 				<br>
 				<br>
 				<br>
 				<div class ="panel-roundRectangle"><a href="#">Je découvre</a></div> 
 				</div>
 				<div class="sous-panel1-fils2">
-				<br>
-				<center style='text-align:justify'>&nbspBénéficiez de 50% de réduction<sup>*</sup> pendant un</center> 
-				<center style='text-align:justify'>&nbspan pour toute souscription d'une carte Visa</center> 
-				<center style='text-align:justify'>&nbspClassic ou carte Visa Premier.</center>
-				<div class="text-bottom1">&nbsp&nbsp&nbsp<sup>*</sup> Offre soumise à conditions.</div>
+				
 				</div>
 			</div>
 			<div class="sous-panel2">
 				<div class="sous-panel2-fils1">
 				<br>
-				<div class="text"><center>Jusqu'au 31 Janvier 2018</center></div>
+				<div class="text"><center></center></div>
 				
 				<br>
 				<br>
 				<br>
 				<br>
 				<div class="text"><center><h2>Bourse Trackers :</center></h2></div>
-				<div class="text"><center><h2>0 &euro; frais de courtage</h2></center></div>
+				<div class="text"><center><h2><% String libelle2 = (String) session.getAttribute("libelle"); out.println(libelle2); %></h2></center></div>
 				<br>
 				<br>
 				<br>
 				<div class ="panel-roundRectangle"><a href="#">Je découvre</a></div>
 				</div>
 				<div class="sous-panel2-fils2">
-				<br>
-				<center style='text-align:justify'>&nbsp&nbspRemboursement de vos frais de courtage</center> 
-				<center style='text-align:justify'>&nbsp&nbspsur vos ordres d’achat au comptant d’un</center> 
-				<center style='text-align:justify'>&nbsp&nbspmontant compris entre 2 000 € et 15 000 €</center>
-				<center style='text-align:justify'>&nbsp&nbspsur l’ensemble des Trackers BNP Paribas</center>
-				<div class="text-bottom2">&nbsp&nbsp&nbsp<sup>*</sup> Offre soumise à conditions.</div>
+				
 				</div>
 			</div>
 			<div class="sous-panel3">
 				<div class="sous-panel3-fils1">
 				<br>
-				<div class="text"><center>Jusqu'au 31 Janvier 2019</center></div>
+				<div class="text"><center></center></div>
 				
 				<br>
 				<br>
 				<br>
 				<br>
 				<div class="text"><center><h2>Prêt Divers :</center></h2></div>
-				<div class="text"><center><h2>1,99 % TAEG fixe</h2></center></div>
+				<div class="text"><center><h2><% String libelle3 = (String) session.getAttribute("libelle"); out.println(libelle3); %></h2></center></div>
 				<br>
 				<br>
 				<br>
-				<div class ="panel-roundRectangle"><a href="#">Voir conditions</a></div> 
+				<div class ="panel-roundRectangle"><a href="#">Je découvre</a></div> 
 				</div>
 				<div class="sous-panel3-fils2">
-				<br>
-				<center style='text-align:justify'>&nbsp&nbspJusqu’au 04/02/2019 inclus. Pour toute </center> 
-				<center style='text-align:justify'>&nbsp&nbspdemande en ligne d’un prêt personnel</center> 
-				<center style='text-align:justify'>&nbsp&nbspde divers<sup>*</sup>,5 000 € à 25 000 €, sur 12 à </center>
-				<center style='text-align:justify'>&nbsp&nbsp24 mois. Exemple pour un prêt personnel</center>
-				<center style='text-align:justify'>&nbsp&nbspdivers<sup>*</sup> de 5 000 € sur 24 mois</center>
-				<div class="text-bottom3">&nbsp&nbsp&nbsp<sup>*</sup> Offre soumise à conditions.</div>
+				
 				</div>
 			</div>
 </div>

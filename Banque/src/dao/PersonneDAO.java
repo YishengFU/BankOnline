@@ -82,10 +82,9 @@ public class PersonneDAO implements DAO<Personne> {
 			this.reqprep.setString(9, x1.getEmail());
 			this.reqprep.setString(10, x1.getPseudo());
 			this.reqprep.setString(11, x1.getMdp());
-			if(x1.getSon_employe()!=null) {
+			if (x1.getSon_employe() != null) {
 				this.reqprep.setInt(12, x1.getSon_employe().getId_employe());
-			}
-			else {
+			} else {
 				this.reqprep.setNull(12, Types.INTEGER);
 			}
 			this.reqprep.executeUpdate();
@@ -118,10 +117,9 @@ public class PersonneDAO implements DAO<Personne> {
 			this.reqprep.setString(9, x1.getEmail());
 			this.reqprep.setString(10, x1.getPseudo());
 			this.reqprep.setString(11, x1.getMdp());
-			if(x1.getSon_employe()!=null) {
+			if (x1.getSon_employe() != null) {
 				this.reqprep.setInt(12, x1.getSon_employe().getId_employe());
-			}
-			else {
+			} else {
 				this.reqprep.setNull(12, Types.INTEGER);
 			}
 			this.reqprep.setInt(13, x1.getId_pers());
@@ -180,56 +178,72 @@ public class PersonneDAO implements DAO<Personne> {
 		return this.al;
 	}
 
-	public Personne login(String pseudo, String mdp ) throws SQLException {
+	public Personne login(String pseudo, String mdp) throws SQLException {
 		Personne p = null;
-		
+
 		String req = "select * from PERSONNE where pseudo = ? and mdp = ?";
 		try {
-			
+
 			this.reqprep = SQLconnexion.getInstance().creeConnexion().prepareStatement(req);
 			this.reqprep.setString(1, pseudo);
 			this.reqprep.setString(2, mdp);
 			ResultSet resset = this.reqprep.executeQuery();
-			if(resset.next()) {
-				
-				p=PersonneDAO.getInstance().getById(resset.getInt("id_pers"));
+			if (resset.next()) {
+
+				p = PersonneDAO.getInstance().getById(resset.getInt("id_pers"));
 				System.out.println("Login success");
 				return p;
-			}
-			else {
+			} else {
 				System.out.println("Login fail");
 			}
 		} catch (SQLException sqle) {
 			System.out.println("SQL Syntaxe Erreur.");
 			System.out.println(sqle.getMessage());
 		}
-		return p;		
-		
+		return p;
 	}
-	public boolean isexist(String nom, String prenom,LocalDate date ) throws SQLException {
-		boolean isexist = false;
+	
+	public boolean exists(String nom, String prenom, LocalDate date) throws SQLException {
+		boolean exists = false;
 		String req = "select * from PERSONNE where nom = ? and prenom = ? and date_naissance =?";
 		try {
-			
+
 			this.reqprep = SQLconnexion.getInstance().creeConnexion().prepareStatement(req);
 			this.reqprep.setString(1, nom);
 			this.reqprep.setString(2, prenom);
 			this.reqprep.setDate(3, java.sql.Date.valueOf(date));
 			ResultSet resset = this.reqprep.executeQuery();
-			if(resset.next()) {
-				
+			if (resset.next()) {
+
 				System.out.println("le client a déja exist");
-			}
-			else {
+			} else {
 				System.out.println("L'inscription success");
 			}
 		} catch (SQLException sqle) {
 			System.out.println("SQL Syntaxe Erreur.");
 			System.out.println(sqle.getMessage());
 		}
-		return isexist;
-			
-		
+		return exists;
+
 	}
-	
+	public boolean estClient(String pseudo, String mdp) {
+		boolean client = false;
+		String req = "select * from PERSONNE where pseudo=? and mdp=?";
+		try {
+			this.reqprep = SQLconnexion.getInstance().creeConnexion().prepareStatement(req);
+			this.reqprep.setString(1, pseudo);
+			this.reqprep.setString(2, mdp);
+			ResultSet resset = this.reqprep.executeQuery();
+			if (resset.next()) {
+				client = true;
+				System.out.println("C'est un client");
+			} else {
+				System.out.println("Ce n'est pas un client");
+			}
+		} catch (SQLException sqle) {
+			System.out.println("SQL Syntaxe Erreur.");
+			System.out.println(sqle.getMessage());
+		}
+		return client;
+	}
 }

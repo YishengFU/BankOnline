@@ -81,7 +81,7 @@ public class InscriptionServlet extends HttpServlet {
 		p.setMdp(mdp);
 	try {			
 			
-			boolean isexist = PersonneDAO.getInstance().isexist(nom,prenom,date);
+			boolean isexist = PersonneDAO.getInstance().exists(nom,prenom,date);
 			if(isexist) {
 				//response.sendRedirect("login.jsp");
 				//request.getRequestDispatcher("login.jsp").forward(request, response);

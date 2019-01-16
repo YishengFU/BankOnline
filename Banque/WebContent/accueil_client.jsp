@@ -50,9 +50,9 @@
     				</a>
   				</div>
   				<div class="carte-couverture">
-    				<a href='#'>
+    				<a href='virement_client.jsp'>
       				<div class="carte2 bg-02">
-        			<span class='carte-contenu'>Emprunter</span>
+        			<span class='carte-contenu'>Virement</span>
       				</div>
     				</a>
   				</div>
@@ -137,8 +137,8 @@
 			
 			</table>
 			</div>
-			</div>
 		</div>
+	</div>
 <div class="centre2" id="centre2">
 		<div class="centre2-contenu">
         			<h2>MA BANQUE EN PRATIQUE</h2>

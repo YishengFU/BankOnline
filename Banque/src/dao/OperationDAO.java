@@ -172,5 +172,23 @@ public class OperationDAO implements DAO<Operation> {
 		return this.al;
 	}
 	
+	public void virement(int id_cpte_src, int id_cpte_but, String nom_but, double montant) {
+		Compte cpte_src = CompteDAO.getInstance().getById(id_cpte_src);
+		Compte cpte_but = CompteDAO.getInstance().getById(id_cpte_but);
+		Type_operation to = Type_operationDAO.getInstance().getById(3);// virement
+		LocalDate date = LocalDate.now();
+		String lib_op = to.getLib_type_op() + " de " + montant + " euros de compte " + cpte_src.getId_cpte()
+				+ " au compte " + cpte_but.getId_cpte() + date.toString();
+		Etat_operation eo=Etat_operationDAO.getInstance().getById(1);//en cours
+		
+		Operation o1 = new Operation(cpte_src, cpte_but, to, lib_op, montant, date, eo);
+		cpte_src.setSolde(cpte_src.getSolde()-montant);
+		cpte_but.setSolde(cpte_but.getSolde()+montant);
+		CompteDAO.getInstance().update(cpte_src);
+		CompteDAO.getInstance().update(cpte_but);
+		OperationDAO.getInstance().create(o1);
+		System.out.println("virement reussi");
+	}
+	
 
 }
