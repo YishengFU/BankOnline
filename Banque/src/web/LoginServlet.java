@@ -71,7 +71,7 @@ public class LoginServlet extends HttpServlet {
 					if(typeclient == 1) {
 					EmployeDAO.getInstance().getById(currantPersonne.getId_pers());					
 					ArrayList<Compte> al_cpte=CompteDAO.getInstance().findById_pers(currantPersonne.getId_pers());
-					ArrayList<Operation> al_op=OperationDAO.getInstance().findById_cpte(currantPersonne.getId_pers());
+					ArrayList<Operation> al_op=OperationDAO.getInstance().findById_pers(currantPersonne.getId_pers());
 					PrintWriter out = response.getWriter();
 					session.setAttribute("id_pers",currantPersonne.getId_pers());
 					session.setAttribute("nom", currantPersonne.getNom());
@@ -83,7 +83,7 @@ public class LoginServlet extends HttpServlet {
 					out.flush();
 					out.println("<script>");
 					out.println("alert('Login successful')");
-					out.println("window.location.href='compte_client.jsp'");
+					out.println("window.location.href='accueil_client.jsp'");
 					out.println("</script>");
 					
 					}
@@ -91,7 +91,7 @@ public class LoginServlet extends HttpServlet {
 						
 						EmployeDAO.getInstance().getById(currantPersonne.getId_pers());					
 						ArrayList<Compte> al=CompteDAO.getInstance().findById_pers(currantPersonne.getId_pers());
-						ArrayList<Operation> al_op=OperationDAO.getInstance().findById_cpte(currantPersonne.getId_pers());
+						ArrayList<Operation> al_op=OperationDAO.getInstance().findById_pers(currantPersonne.getId_pers());
 						PrintWriter out = response.getWriter();
 						session.setAttribute("id_pers",currantPersonne.getId_pers());
 						session.setAttribute("nom", currantPersonne.getNom());

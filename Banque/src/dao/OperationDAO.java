@@ -145,13 +145,13 @@ public class OperationDAO implements DAO<Operation> {
 		return this.al;
 	}
 	
-	public ArrayList<Operation> findById_cpte(int id) {
+	public ArrayList<Operation> findById_pers(int id_pers) {
 		String req = "select * from COMPTE c, OPERATION o where c.id_pers=? and (c.id_cpte=o.cpte_op_src or"
 				+" c.id_cpte=o.cpte_op_but)";
 		this.al.clear();// vider ArrayList
 		try {
 			this.reqprep = SQLconnexion.getInstance().creeConnexion().prepareStatement(req);
-			this.reqprep.setInt(1, id);
+			this.reqprep.setInt(1, id_pers);
 			ResultSet resset = this.reqprep.executeQuery();
 			while (resset.next()) {
 				int res1 = resset.getInt("id_op");
@@ -172,23 +172,54 @@ public class OperationDAO implements DAO<Operation> {
 		return this.al;
 	}
 	
-	public void virement(int id_cpte_src, int id_cpte_but, String nom_but, double montant) {
+	public ArrayList<Operation> findById_cpte(int id_cpte) {
+		String req = "select * from OPERATION o where o.cpte_op_src=? or o.cpte_op_but=?";
+		this.al.clear();// vider ArrayList
+		try {
+			this.reqprep = SQLconnexion.getInstance().creeConnexion().prepareStatement(req);
+			this.reqprep.setInt(1, id_cpte);
+			this.reqprep.setInt(2, id_cpte);
+			ResultSet resset = this.reqprep.executeQuery();
+			while (resset.next()) {
+				int res1 = resset.getInt("id_op");
+				Compte res2 = CompteDAO.getInstance().getById(resset.getInt("cpte_op_src"));
+				Compte res3 = CompteDAO.getInstance().getById(resset.getInt("cpte_op_but"));
+				Type_operation res4 = Type_operationDAO.getInstance().getById(resset.getInt("id_type_op"));
+				String res5 = resset.getString("lib_op");
+				double res6 = resset.getDouble("montant");
+				LocalDate res7 = resset.getDate("date").toLocalDate();
+				Etat_operation res8 = Etat_operationDAO.getInstance().getById(resset.getInt("id_etat"));
+				this.al.add(new Operation(res1, res2, res3, res4, res5, res6, res7, res8));
+			}
+			return this.al;
+		} catch (SQLException sqle) {
+			System.out.println("SQL Syntaxe Erreur.");
+			System.out.println(sqle.getMessage());
+		}
+		return this.al;
+	}
+	
+	public boolean virement(int id_cpte_src, int id_cpte_but, double montant) {
 		Compte cpte_src = CompteDAO.getInstance().getById(id_cpte_src);
 		Compte cpte_but = CompteDAO.getInstance().getById(id_cpte_but);
+		System.out.println("ying1"+cpte_src);
+		System.out.println("ying2"+cpte_but);
 		Type_operation to = Type_operationDAO.getInstance().getById(3);// virement
 		LocalDate date = LocalDate.now();
 		String lib_op = to.getLib_type_op() + " de " + montant + " euros de compte " + cpte_src.getId_cpte()
 				+ " au compte " + cpte_but.getId_cpte() + date.toString();
 		Etat_operation eo=Etat_operationDAO.getInstance().getById(1);//en cours
-		
 		Operation o1 = new Operation(cpte_src, cpte_but, to, lib_op, montant, date, eo);
+		System.out.println("ying3"+o1);
 		cpte_src.setSolde(cpte_src.getSolde()-montant);
 		cpte_but.setSolde(cpte_but.getSolde()+montant);
 		CompteDAO.getInstance().update(cpte_src);
 		CompteDAO.getInstance().update(cpte_but);
-		OperationDAO.getInstance().create(o1);
-		System.out.println("virement reussi");
+		if(OperationDAO.getInstance().create(o1)!=0) {
+			System.out.println("virement reussi");
+			return true;
+		}
+		return false;
 	}
 	
-
 }

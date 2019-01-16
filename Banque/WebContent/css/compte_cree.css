@@ -4,13 +4,9 @@
 	padding: 0;
 	
 }
-.body{
-	height:100%;
-	width: 100%;
-	margin-bottom:10px;
-}
+
 #centre {
-	height: 600px;
+	height: 1000px;
 	width: auto;
 	margin-left:-10px;
 	margin-right:-10px;
@@ -18,7 +14,9 @@
 	background-repeat: no-repeat;
 	background-position: center center;
 	position: relative;
-	background-color: RGB(231, 231, 231);
+	overflow: hidden;
+ 	background-color: RGB(231, 231, 231);
+	
 }
 #head {
 	height: 80px;
@@ -105,7 +103,7 @@
 .navigateur1 .active {
     background-color: RGB(12, 108, 69);
 }
-.icon
+.navigateur1 .icon
 { 
 	margin-bottom:15px;
 	margin-top:7px;
@@ -115,7 +113,7 @@
 	overflow:hidden;
 	position: relative;
 } 
-.icon img
+.navigateur1 .icon img
 {
 	
 	width:100%;
@@ -162,52 +160,13 @@
 
 /********************************   Centre   ********************************************/
 
-/********************************   animation   ********************************************/
-
-.animation {
-  font-size: 60px;
-  height: 20px; 
-  text-transform: uppercase;
-  color: white;
-}
-
-.animation span {
-  display: block;
-  font-size: 25px;
-  opacity: 0.8;
-}
-
-.animation div {
-  position: absolute;
-  opacity: 0;
-  top:35%;
-  left: 15%;
-  width: 800px;
-  animation: animation-affichage 14s linear infinite;
-  z-index: 10;
-}
-
-.animation div:nth-child(2) { animation-delay: 4s}
-.animation div:nth-child(3) { animation-delay: 8s}
-.animation div:nth-child(4) { animation-delay: 12s}
-
-
-@keyframes animation-affichage {
-    0% { opacity: 0;filter: blur(20px); transform:scale(12)}
-    3% { opacity: 1;filter: blur(0); transform:scale(1)}
-    10% { opacity: 1;filter: blur(0); transform:scale(.9)}
-    13% { opacity: 0;filter: blur(10px); transform:scale(.1)}
-    80% { opacity: 0}
-    100% { opacity: 0}
-}
-
 
 @keyframes glisser-img {
     0% {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-130px);
+        transform: translateX(-300px);
     }
 }
 #centre .glisser {
@@ -229,7 +188,7 @@
     position: relative;
 }
 #centre .img .Glisser {
-    background-image: url('../images/etoile.png');
+    background-image: url('../images/city2.png');
     background-size: 1400px 600px;
     position: absolute;
     top: 0px;
@@ -237,7 +196,7 @@
     height: 100%;
     width: 500%;
     z-index: 1;
-    animation: glisser-img 10s linear infinite;
+    animation: glisser-img 14s linear infinite;
 }
 
 #centre .panel-haut {
@@ -254,149 +213,108 @@
 }
 .panel-haut .panel-p{
 	flex:1;
-	border:1.2px solid white;
+	border:1px solid white;
 	transform: skew(45deg);
 }
  #p-1{
-	background-color:white;
+	background-color:rgb(115,170,192);
 }
 .panel-haut #p-2{
 	background-color:rgb(78,143,177);
 }
 .panel-haut #p-3{
-	background-color:white;
+	background-color:rgb(71,148,179);
 }
 
-/********************************   login   ********************************************/
-#centre .glisser .panel-login{
+/********************************   Inscription   ********************************************/
+
+
+#centre .glisser .panel-inscription{
     margin: 0;
-    z-index: 100;
+    z-index: 2;
 	background-color: RGB(231, 231, 231);
 	opacity: 0.9;
-	height: 408px;
-	width: 368px;  
+	height: 700px;
+	width: 1000px;  
 	position: absolute;
 	background-color: #FFFFFF;
 	top: 20%;
-	right: 10%;
+	left: 10%;
 }
 
 
-.log-p2 .button {
-	top:30px;
-	width: 100%;
-	height: 45px;
-	background-color: RGB(52, 194, 169);
-	border: none;
-	color: white;
-	margin-bottom: 10px;
-	font-size: 18px;
-}
-.button:hover
-	{
-	background-color: #CC9933;
-	}
-.login .log-p1.logtitre .p1 {
-	display: inline-block;
-	font-size: 35px;
-	margin-bottom: 0px;
-	width: 86%;
-}
-.panel-login .login .log.logtitre {
-	width: 86%;
-	border-bottom: 1px solid RGB(52, 194, 169);
-	margin-bottom: 40px;
-	margin-top: 0px;
-	margin-right: auto;
-	margin-left: auto;
-}
-.login .log-p1 i {
-	position: absolute;
-	top: 8px;
-	left: 10px;
-}
-.login .log-p1 .textfield {
-	width: 100%;
-	height: 42px;
-	text-indent: 2.5rem;
-}
-.panel-login .login .log-p1 {
-	width: 86%;
-	position: relative;
-	margin-bottom: 20px;
-	margin-top: 5px;
-	margin-right: auto;
-	margin-left: auto;
-}
-
-.log-p3 a.site {
-	text-decoration: none;
-	font-size: 18px;
-	line-height: 18px;
-	margin-left:65% ;
-	color: #66CCCC;
-	font-style: italic;
-	
-}
-a.site:hover
-	{
-	color:#CC9933;
-	font-size: 20px;
-	}
-	
-#centre  .glisser .panel-login1{
-    margin: 0;
-    z-index: 100;
+.panel-inscription .right{
+	margin: 0;
+    z-index: 3;
 	background-color: RGB(231, 231, 231);
 	opacity: 0.9;
-	height: 408px;
-	width: 368px;  
+	height: 500px;
+	width: 380px;  
 	position: absolute;
-	top: 20%;
+	background-color: #FFFFFF;
+	top: 15%;
+	left: 50%;
+	
+}
+
+.panel-inscription .left{
+	margin: 0;
+    z-index: 3;
+	background-color: RGB(231, 231, 231);
+	opacity: 0.9;
+	height: 500px;
+	width: 380px;  
+	position: absolute;
+	background-color: #FFFFFF;
+	top: 15%;
 	left: 10%;
-}	
+	/*border-right: 1px solid #ee7700;*/
+}
 
-
-
-.log1-p2 .button {
+.ins-p2 .button {
 	top:30px;
-	width: 100%;
+	width: 60%;
 	height: 45px;
-	background-color: RGB(52, 194, 169);
+	background-color: #ee7700;
 	border: none;
 	color: white;
-	margin-bottom: 10px;
+	margin-top: 49%;
+	margin-left:20%;
+	margin-bottom:10px;
 	font-size: 18px;
+	
 }
 .button:hover
 	{
 	background-color: #CC9933;
 	}
-.login1 .log1-p1.logtitre1 .p1 {
+
+.inscription .ins-p1.institre .p1 {
 	display: inline-block;
 	font-size: 35px;
 	margin-bottom: 0px;
 	width: 86%;
+	text-align: center;
 }
-.panel-login1 .login1 .log1.logtitre1 {
+.inscription .ins.institre {
 	width: 86%;
-	border-bottom: 1px solid RGB(52, 194, 169);
+	border-bottom: 1px solid #ee7700;
 	margin-bottom: 60px;
 	margin-top: 0px;
 	margin-right: auto;
 	margin-left: auto;
 }
-.login1 .log1-p1 i {
+.inscription .ins-p1 i {
 	position: absolute;
-	top: 8px;
-	left: 10px;
+	top: 14px;
+	left: 15px;
 }
-.login1 .log1-p1 .textfield1 {
+.inscription .ins-p1 .textfield {
 	width: 100%;
 	height: 42px;
 	text-indent: 2.5rem;
 }
-.panel-login1 .login1 .log1-p1 {
+.panel-inscription .inscription .ins-p1 {
 	width: 86%;
 	position: relative;
 	margin-bottom: 30px;
@@ -404,8 +322,7 @@ a.site:hover
 	margin-right: auto;
 	margin-left: auto;
 }
-
-.log1-p3 a.site {
+.ins-p3 a.site {
 	text-decoration: none;
 	font-size: 18px;
 	line-height: 18px;
@@ -419,7 +336,7 @@ a.site:hover
 	color:#CC9933;
 	font-size: 20px;
 	}
-
+	
 /***************************************  foot ************************************************/
 
 #foot .foot1 {

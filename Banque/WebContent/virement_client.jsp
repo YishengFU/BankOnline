@@ -48,16 +48,41 @@
 <div class="centre" id="centre">
 	<section class="glisser" id = "glisser">
        <div class="panel-login1" id="panel-login1">
-        <form action ="Login" method="post" onsubmit="return entree()">
+        <form action ="virement" method="post" onsubmit="return entree()">
 		<div class="login1">
 			<div class="log1 logtitre1">
 				<h2 class="p1">Compte émetteur</h2>
 			</div>
 		
+						<%
+	        				String prenom =(String)session.getAttribute("prenom");
+							String nom =(String) session.getAttribute("nom");
+							double solde = (double) session.getAttribute("solde");
+							int idcompte = (int) session.getAttribute("idcompte");
+						%>
+						
+			<div class="log1-p1">
+				
+				 ID:<% out.println(idcompte);%>
+				
+			</div>
+			<div class="log1-p1">
+				<% out.println(nom);%>
+				<%out.println(prenom);%>
+				
+			</div>
+			<div class="log1-p1">
+			
+				Solide :<% out.println(solde);%>
+		
+			</div>
+			
+				
+			
 			<div class="log1-p1">
 				<i class="icon ion-ios-chatbubble-outline"></i>
-				<input type="password"
-					name="mdp" id="mdp" class="textfield1" placeholder="Motif du virement" >
+				<input type="text"
+					name="message" id="message" class="textfield1" placeholder="Motif du virement" >
 			</div>
 			
 			
@@ -65,7 +90,7 @@
 	</form>
 	</div>	
         <div class="panel-login" id="panel-login">
-        <form action ="Login" method="post" onsubmit="return entree()">
+        <form action ="virement" method="post" onsubmit="return entree()">
 		<div class="login">
 			<div class="log logtitre">
 				<h2 class="p1">Compte destinataire</h2>
@@ -77,12 +102,12 @@
 			</div>
 			<div class="log-p1">
 				<i class="icon ion-ios-person-outline"></i>
-				<input type="password"
-					name="id" id="id" class="textfield" placeholder="id compte " >
+				<input type="text"
+					name="id_compte_but" id="id_compte_but" class="textfield" placeholder="id compte " >
 			</div>
 			<div class="log-p1">
 				<i class="icon ion-ios-locked-outline"></i>
-				<input type="password"
+				<input type="text"
 					name="montant" id="montant" class="textfield" placeholder="montant € " >
 			</div>
 			<div class="log-p2">

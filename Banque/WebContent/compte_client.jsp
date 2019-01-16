@@ -1,18 +1,18 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="main.SQLconnexion" %>
-<%@ page import="pojo.Compte" %>
+<%@ page import="pojo.Operation" %>
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+      
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<head>
 		<meta charset = "UTF-8">
-		<title> Compte</title>
+		<title>Bienvenue</title>
 		<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css">
-		<link rel="stylesheet" type="text/css" href="./css/compte_client.css">	
+		<link rel="stylesheet" type="text/css" href="./css/accueil_client.css">	
 	</head>
     <body>
 <div class="head" id="head">
@@ -29,14 +29,10 @@
 		<ul>
 			<li style='float:left'><div class="icon"><img src="images/icon.png"/></div></li>
 			<li style='float:left'><h2><a href="http://localhost:8090/Banque/accueil.jsp">AEDI Banque</a></h2></li>
-			<li style='float:right'><a href="login.jsp"><div class ="roundRectangle1"><i class="icon ion-ios-locked-outline"></i>  Accéder à mes comptes</div></a></li>
+			<li style='float:right'><a href="logout"><div class ="roundRectangle1"> Se déconnecter</div></a></li>
 			<li style='float:right'><a href="inscription.jsp"><div class ="roundRectangle">Ouvrir un compte</div></a></li>
 		</ul>
 		</div>
-    		<div class="container" >
-  				<input type="text" placeholder="Recherche...">
-  			<div class="search"></div>
-			</div>
 			
  	 </div>
   
@@ -50,9 +46,9 @@
     				</a>
   				</div>
   				<div class="carte-couverture">
-    				<a href='#'>
+    				<a href='VirementServlet?id=${idcompte}'>
       				<div class="carte2 bg-02">
-        			<span class='carte-contenu'>Emprunter</span>
+        			<span class='carte-contenu'>Virement</span>
       				</div>
     				</a>
   				</div>
@@ -88,48 +84,57 @@
 			<div class="picture"><img src="images/city3.png"/></div>
 		<!-- <div class="panel-contenu"> -->
 				<div class="panel-contenu">
-        			<center><h1>Bienvenue
-        				<i><%
-	        				String prenom =(String)session.getAttribute("prenom");
-							String nom =(String) session.getAttribute("nom");
-							ArrayList<Compte> comptes  = (ArrayList<Compte>) session.getAttribute("comptes");
-							out.println(prenom);
-							out.println(nom);
-						%>
-						</i>
-        			</h1>
-      			</center>
+        			
+        			
         		</div>
   		<!--</div>  -->
-			<div class="sous-panel1">
-				<div class = "tableaffichage">
+			<div class="sous-panel1"><!-- à faire -->
+			<div class = "tableaffichage">
 			<table align = "center">
+			<caption>
+			<h2>Binvenue,  
+	        			<%
+	        				String prenom =(String)session.getAttribute("prenom");
+							String nom =(String) session.getAttribute("nom");
+							double solde = (double) session.getAttribute("solde");
+							ArrayList<Operation> al_op= (ArrayList<Operation>) session.getAttribute("operations");
+							int idcompte = (int) session.getAttribute("idcompte");
+							out.println(prenom);
+							out.println(nom);
+							
+						%>
+					</h2>
+			
+			<p class = "solide">Votre solde est de : <%out.println(solde); %></p>
+			</caption>
 			<thead>
 			
 				<tr>
-					
-					<th width="100" align="center" valign="middle">Libelle</th>
-					<th width="100" align="center" valign="middle">Id Compte</th>
-					<th width="100" align="center" valign="middle">Solde</th>
-					
+					<th width="100" align="center" valign="middle">Date</th>
+					<th width="100" align="center" valign="middle">Compte Source</th>
+					<th width="100" align="center" valign="middle">Compte But</th>
+					<th width="100" align="center" valign="middle">Montant</th>
+					<th width="350" align="center" valign="middle">Libelle d'operation</th>
+					<th width="100" align="center" valign="middle">Etat d'operation</th>
 				</tr>
 			</thead>
 				
-				<c:forEach   items="${comptes}" var = "l" varStatus = "s">
+				<% for(Operation x: al_op){%>
 				<tbody>
 					<tr>
-					
-						<td width="350" align="center" valign="middle"><c:out value="${l.getSon_type_cpte().getLib_type_cpte()}"/></td>
-						<td width="350" align="center" valign="middle"><a href = "ComptedetailServlet?id=${String.valueOf(l.getId_cpte())}"><c:out value="${l.getId_cpte()}"/></a></td>
-						<td width="350" align="center" valign="middle"><c:out value="${l.getSolde()}"/></td>
+						<td width="100" align="center" valign="middle"><%out.println(x.getDate());%></td>
+						<td width="100" align="center" valign="middle"><%out.println(x.getCpte_op_but().getId_cpte());%></td>
+						<td width="100" align="center" valign="middle"><%out.println(x.getCpte_op_src().getId_cpte());%></td>
+						<td width="100" align="center" valign="middle"><%out.println(x.getMontant());%></td>
+						<td width="350" align="center" valign="middle"><%out.println(x.getLib_op());%></td>
+						<td width="100" align="center" valign="middle"><%out.println(x.getSon_etat().getLib_etat());%></td>
 						</tr>
 				</tbody>
-				</c:forEach>
-			
+				<%}%>
 			</table>
 			</div>
-			</div>
-</div>
+		</div>
+	</div>
 <div class="centre2" id="centre2">
 		<div class="centre2-contenu">
         			<h2>MA BANQUE EN PRATIQUE</h2>

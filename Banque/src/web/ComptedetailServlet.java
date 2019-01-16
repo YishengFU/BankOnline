@@ -13,7 +13,6 @@ import javax.servlet.http.HttpSession;
 
 import dao.CompteDAO;
 import dao.OperationDAO;
-import dao.PersonneDAO;
 import pojo.Compte;
 import pojo.Operation;
 import pojo.Personne;
@@ -24,66 +23,72 @@ import pojo.Personne;
 @WebServlet("/ComptedetailServlet")
 public class ComptedetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ComptedetailServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public ComptedetailServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		// response.getWriter().append("Served at: ").append(request.getContextPath());
 		doPost(request, response);
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//doGet(request, response);
+		// doGet(request, response);
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
-		HttpSession session = request.getSession(false);
-		int id_compte = Integer.parseInt(request.getParameter("id"));
-		System.out.println(id_compte);
-		if(session!=null) {
-				Compte currantCompte=CompteDAO.getInstance().getById(id_compte);
-				System.out.println(currantCompte);
-				Personne currantPersonne = currantCompte.getSon_hote();
-				System.out.println(currantPersonne);
-				ArrayList<Compte> al_cpte=CompteDAO.getInstance().findById_pers(currantPersonne.getId_pers());
-				ArrayList<Operation> al_op=OperationDAO.getInstance().findById_cpte(currantCompte.getId_cpte());
-				System.out.println(al_cpte);
-				System.out.println(al_op+"ying");
+
+		try {
+				HttpSession session = request.getSession(false);
+				int id_compte = Integer.parseInt(request.getParameter("id"));
+				session.setAttribute("idcompte", id_compte);
+				System.out.println(id_compte);
+				if (session != null) {
+					Compte currantCompte = CompteDAO.getInstance().getById(id_compte);
+					Personne currantPersonne = currantCompte.getSon_hote();
+					ArrayList<Compte> al_cpte = CompteDAO.getInstance().findById_pers(currantPersonne.getId_pers());
+					ArrayList<Operation> al_op = OperationDAO.getInstance().findById_cpte(currantCompte.getId_cpte());
+					PrintWriter out = response.getWriter();
+					session.setAttribute("nom", currantPersonne.getNom());
+					session.setAttribute("prenom", currantPersonne.getPrenom());
+					session.setAttribute("solde", al_cpte.get(0).getSolde());
+					session.setAttribute("comptes", al_cpte);
+					session.setAttribute("operations", al_op);
+					out.flush();
+					out.println("<script>");
+					out.println("alert('acceder votre compte successful')");
+					out.println("window.location.href='compte_client.jsp'");
+					out.println("</script>");
+				}
+
+			else {
 				PrintWriter out = response.getWriter();
-				session.setAttribute("nom", currantPersonne.getNom());
-				session.setAttribute("prenom", currantPersonne.getPrenom());
-				session.setAttribute("solde",al_cpte.get(0).getSolde());
-				session.setAttribute("comptes", al_cpte);
-				session.setAttribute("operations", al_op);
 				out.flush();
 				out.println("<script>");
-				out.println("alert('acceder votre compte successful')");
-				out.println("window.location.href='accueil_client.jsp'");
+				out.println("alert('Il faut se connecter')");
+				out.println("window.location.href='accueil.jsp'");
 				out.println("</script>");
-		}
+			}
 		
-		else {
-			
-			PrintWriter out = response.getWriter();
-			out.flush();
-			out.println("<script>");
-			out.println("alert('Il faut se connecter')");
-			out.println("window.location.href='accueil.jsp'");
-			out.println("</script>");
+		}
+		catch(Exception e){
+			e.printStackTrace();
 		}
 	}
-
 }

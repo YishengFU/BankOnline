@@ -33,4 +33,12 @@
     <servlet-name>LoginoutServlet</servlet-name>
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>ComfirmerVirementServlet</servlet-name>
+    <servlet-class>web.ComfirmerVirementServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ComfirmerVirementServlet</servlet-name>
+    <url-pattern>/virement</url-pattern>
+  </servlet-mapping>
 </web-app>
