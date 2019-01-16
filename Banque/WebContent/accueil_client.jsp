@@ -108,7 +108,7 @@
 						%>
 					</h2>
 			
-			<p class = "solide">votre solde est de : <%out.println(solde); %></p>
+			<p class = "solide">Votre solde est de : <%out.println(solde); %></p>
 			</caption>
 			<thead>
 			

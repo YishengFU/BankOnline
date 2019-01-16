@@ -1,6 +1,10 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="main.SQLconnexion" %>
+<%@ page import="pojo.Compte" %>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -84,10 +88,11 @@
 			<div class="picture"><img src="images/city3.png"/></div>
 		<!-- <div class="panel-contenu"> -->
 				<div class="panel-contenu">
-        			<center><h1>Binvenue
+        			<center><h1>Bienvenue
         				<i><%
 	        				String prenom =(String)session.getAttribute("prenom");
 							String nom =(String) session.getAttribute("nom");
+							ArrayList<Compte> comptes  = (ArrayList<Compte>) session.getAttribute("comptes");
 							out.println(prenom);
 							out.println(nom);
 						%>
@@ -97,63 +102,32 @@
         		</div>
   		<!--</div>  -->
 			<div class="sous-panel1">
-				<div class="sous-panel1-fils1">
-				<br>
-				<div class="text"><center></center></div>
+				<div class = "tableaffichage">
+			<table align = "center">
+			<thead>
+			
+				<tr>
+					
+					<th width="100" align="center" valign="middle">Libelle</th>
+					<th width="100" align="center" valign="middle">Id Compte</th>
+					<th width="100" align="center" valign="middle">Solde</th>
+					
+				</tr>
+			</thead>
 				
-				<br>
-				<br>
-				<br>
-				<div class="text"><center><h2>Cartes bancaires :</center></h2></div>
-				<div class="text"><center><h2><% String libelle = (String) session.getAttribute("libelle"); out.println(libelle); %></h2></center></div>
-				<br>
-				<br>
-				<br>
-				<div class ="panel-roundRectangle"><a href="#">Je découvre</a></div> 
-				</div>
-				<div class="sous-panel1-fils2">
-				
-				</div>
+				<c:forEach   items="${comptes}" var = "l" varStatus = "s">
+				<tbody>
+					<tr>
+					
+						<td width="350" align="center" valign="middle"><c:out value="${l.getSon_type_cpte().getLib_type_cpte()}"/></td>
+						<td width="350" align="center" valign="middle"><a href = "ComptedetailServlet?id=${String.valueOf(l.getId_cpte())}"><c:out value="${l.getId_cpte()}"/></a></td>
+						<td width="350" align="center" valign="middle"><c:out value="${l.getSolde()}"/></td>
+						</tr>
+				</tbody>
+				</c:forEach>
+			
+			</table>
 			</div>
-			<div class="sous-panel2">
-				<div class="sous-panel2-fils1">
-				<br>
-				<div class="text"><center></center></div>
-				
-				<br>
-				<br>
-				<br>
-				<br>
-				<div class="text"><center><h2>Bourse Trackers :</center></h2></div>
-				<div class="text"><center><h2><% String libelle2 = (String) session.getAttribute("libelle"); out.println(libelle2); %></h2></center></div>
-				<br>
-				<br>
-				<br>
-				<div class ="panel-roundRectangle"><a href="#">Je découvre</a></div>
-				</div>
-				<div class="sous-panel2-fils2">
-				
-				</div>
-			</div>
-			<div class="sous-panel3">
-				<div class="sous-panel3-fils1">
-				<br>
-				<div class="text"><center></center></div>
-				
-				<br>
-				<br>
-				<br>
-				<br>
-				<div class="text"><center><h2>Prêt Divers :</center></h2></div>
-				<div class="text"><center><h2><% String libelle3 = (String) session.getAttribute("libelle"); out.println(libelle3); %></h2></center></div>
-				<br>
-				<br>
-				<br>
-				<div class ="panel-roundRectangle"><a href="#">Je découvre</a></div> 
-				</div>
-				<div class="sous-panel3-fils2">
-				
-				</div>
 			</div>
 </div>
 <div class="centre2" id="centre2">

@@ -70,13 +70,14 @@ public class LoginServlet extends HttpServlet {
 				if(session!=null) {
 					if(typeclient == 1) {
 					EmployeDAO.getInstance().getById(currantPersonne.getId_pers());					
-					ArrayList<Compte> al=CompteDAO.getInstance().findById_pers(currantPersonne.getId_pers());
+					ArrayList<Compte> al_cpte=CompteDAO.getInstance().findById_pers(currantPersonne.getId_pers());
 					ArrayList<Operation> al_op=OperationDAO.getInstance().findById_cpte(currantPersonne.getId_pers());
 					PrintWriter out = response.getWriter();
 					session.setAttribute("id_pers",currantPersonne.getId_pers());
 					session.setAttribute("nom", currantPersonne.getNom());
 					session.setAttribute("prenom", currantPersonne.getPrenom());
-					session.setAttribute("solde",al.get(0).getSolde());
+					session.setAttribute("solde",al_cpte.get(0).getSolde());
+					session.setAttribute("comptes", al_cpte);
 					session.setAttribute("operations", al_op);
 					
 					out.flush();
