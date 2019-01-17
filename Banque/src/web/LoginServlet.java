@@ -81,7 +81,6 @@ public class LoginServlet extends HttpServlet {
 					session.setAttribute("operations", al_op);
 					out.flush();
 					out.println("<script>");
-					out.println("alert('Login successful')");
 					out.println("window.location.href='accueil_client.jsp'");
 					out.println("</script>");
 				}
@@ -99,18 +98,16 @@ public class LoginServlet extends HttpServlet {
 				} else {
 					HttpSession session = request.getSession(false);
 					ArrayList<Personne> al_pers = EmployeDAO.getInstance().findCustomers(e.getId_employe());
+					System.out.println(al_pers);
 					session.setAttribute("personnes", al_pers);
 					session.setAttribute("nom", e.getNom());
 					session.setAttribute("prenom", e.getPrenom());
 					PrintWriter out = response.getWriter();
 					out.flush();
 					out.println("<script>");
-					out.println("alert('Login successful')");
 					out.println("window.location.href='accueil_employe.jsp'");
 					out.println("</script>");
 				}
-				
-
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

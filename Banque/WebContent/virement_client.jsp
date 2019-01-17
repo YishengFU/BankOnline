@@ -121,11 +121,11 @@
 </div>
 <div class="foot" id="foot">		
   			<div class="foot1">
-  				<div class="foot-text"><h3>&nbsp&nbspCONTACT</h3></div>
+  				<div class="foot-text"><h3>&nbsp&nbspkilian.kalypso@gmail.com</h3></div>
   				<div class= "foot-site"><a href="#">Nos conseillers vous répondent par téléphone, chat, mail ou bien encore grâce à nos SAV Facebook et Twitter</a></div>
   			</div>
    		 	<div class="foot2">
-   		 		<div class="foot-text"><h3>&nbsp&nbspCONTACT</h3></div>
+   		 		<div class="foot-text"><h3>&nbsp&nbsp+33 6 35 51 22 44</h3></div>
   				<div class= "foot-site"><a href="#"><p>Nos conseillers vous répondent par téléphone, chat, mail ou bien encore grâce à nos SAV Facebook et Twitter</p></a></div>
   			</div>
   			<div class="foot3">

@@ -72,20 +72,9 @@ public class ComptedetailServlet extends HttpServlet {
 					session.setAttribute("operations", al_op);
 					out.flush();
 					out.println("<script>");
-					out.println("alert('acceder votre compte successful')");
 					out.println("window.location.href='compte_client.jsp'");
 					out.println("</script>");
 				}
-
-			else {
-				PrintWriter out = response.getWriter();
-				out.flush();
-				out.println("<script>");
-				out.println("alert('Il faut se connecter')");
-				out.println("window.location.href='accueil.jsp'");
-				out.println("</script>");
-			}
-		
 		}
 		catch(Exception e){
 			e.printStackTrace();

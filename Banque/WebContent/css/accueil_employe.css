@@ -12,14 +12,14 @@ table{
 	margin-bottom:-10px;
 }
 
-modifer a {
+ a {
     display: block;
     color:  RGB(46, 197, 240);
     text-align: center;
     text-decoration: none;
 }
 
-modifier a:hover {
+a:hover {
 	color:white;
     background-color: RGB(52, 194, 169);
 }

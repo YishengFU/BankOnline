@@ -50,7 +50,6 @@ public class CompteCreeServlet extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		int id_type_compte = Integer.parseInt(request.getParameter("typecompte"));
 		int id_type_statut= Integer.parseInt(request.getParameter("statut"));
-		
 		try {
 				HttpSession session = request.getSession(false);
 				int id_pers = (int) session.getAttribute("id_pers");
@@ -58,24 +57,13 @@ public class CompteCreeServlet extends HttpServlet {
 				int currantCompte = CompteDAO.getInstance().createSimple(id_pers,id_type_compte,id_type_statut);
 				if(currantCompte >0 ) {
 					
-					
+					session.setAttribute("comptes", CompteDAO.getInstance().findById_pers(id_pers));
 					PrintWriter out = response.getWriter();
 					out.flush();
 					out.println("<script>");
-					out.println("alert('Votre compte a ete cree avec succes')");
 					out.println("window.location.href='accueil_client.jsp'");
 					out.println("</script>");
 				}
-
-			else {
-				PrintWriter out = response.getWriter();
-				out.flush();
-				out.println("<script>");
-				out.println("alert('Il faut se connecter')");
-				out.println("window.location.href='accueil.jsp'");
-				out.println("</script>");
-			}
-		
 		}
 		}catch(Exception e){
 			e.printStackTrace();

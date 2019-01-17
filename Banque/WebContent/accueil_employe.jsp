@@ -3,7 +3,7 @@
 <%@ page import="main.SQLconnexion" %>
 <%@ page import="pojo.Personne" %>
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
       
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -86,7 +86,7 @@
         				<i><%
 	        				String prenom =(String)session.getAttribute("prenom");
 							String nom =(String) session.getAttribute("nom");
-							ArrayList<Personne> al_pers = (ArrayList<Personne>) session.getAttribute("personnes");
+							ArrayList<Personne> personnes = (ArrayList<Personne>) session.getAttribute("personnes");
 							out.println(prenom);
 							out.println(nom);
 						%>
@@ -95,53 +95,47 @@
       			</center>
         		</div>
 			<div class="sous-panel1"><!-- à faire -->
-						<div class = "tableaffichage">
-			<table align = "center">
-			<caption>
-			<h2></h2>
-			</caption>
-			<thead>
-			
-				<tr>
-					
-					<th width="200" align="center" valign="middle">Id</th>
-					<th width="400" align="center" valign="middle">Nom</th>
-					<th width="400" align="center" valign="middle">Prénom</th>
-					<th width="400" align="center" valign="middle">Date_naissance</th>
-					<th width="400" align="center" valign="middle">Adresse</th>
-					<th width="350" align="center" valign="middle">Ville</th>
-					<th width="350" align="center" valign="middle">Sexe</th>
-					<th width="350" align="center" valign="middle">Statut</th>
-					<th width="450" align="center" valign="middle">Téléphne</th>
-					<th width="450" align="center" valign="middle">Email</th>
-					<th width="350" align="center" valign="middle">Pseudo</th>
-					<th width="450" align="center" valign="middle">Employe</th>
-					<th width="350" align="center" valign="middle"></th>
-					
-				</tr>
-			</thead>
+			<div class = "tableaffichage">
+				<table align = "center">
+				<caption>
+				<h2></h2>
+				</caption>
+				<thead>
+					<tr>	
+						<th width="200" >Id</th>
+						<th width="200" >Nom</th>
+						<th width="100" >Prénom</th>
+						<th width="150" >Date_naissance</th>
+						<th width="300" >Adresse</th>
+						<th width="350" >Ville</th>
+						<th width="350" >Sexe</th>
+						<th width="350" >Statut</th>
+						<th width="450" >Téléphne</th>
+						<th width="450" >Email</th>
+						<th width="350" >Pseudo</th>
+						<th width="450" >Employe</th>
+						<th width="" align="center" valign="middle">Modification</th>
+						
+					</tr>
+				</thead>
 				
-				<c:forEach   items="${al_pers}" var = "l" varStatus = "s">
+				<c:forEach   items="${personnes}" var = "l" varStatus = "s">
 				<tbody>
 					<tr>
 						<td width="200" align="center" valign="middle"><c:out value="${l.getId_pers()}"/></td>
-						<td width="450" align="center" valign="middle"><c:out value="${l.getNom()}"/></td>
-						<td width="450" align="center" valign="middle"><c:out value="${l.getPrenom()}"/></td>
+						<td width="300" align="center" valign="middle"><c:out value="${l.getNom()}"/></td>
+						<td width="300" align="center" valign="middle"><c:out value="${l.getPrenom()}"/></td>
 						<td width="500" align="center" valign="middle"><c:out value="${l.getDate_naissance()}"/></td>
 						<td width="500" align="center" valign="middle"><c:out value="${l.getAdresse()}"/></td>
 						<td width="350" align="center" valign="middle"><c:out value="${l.getSa_ville().getLib_ville()}"/></td>
-						<td width="350" align="center" valign="middle"><c:out value="${l.getSon_sexe().getLib_sexe()}"/></td>
+						<td width="350" align="center" valign="middle"><c:out value="${l.getSon_sexe().getLibelle()}"/></td>
 						<td width="350" align="center" valign="middle"><c:out value="${l.getSon_statut().getLib_statut()}"/></td>
 						<td width="450" align="center" valign="middle"><c:out value="${l.getTelephone()}"/></td>
 						<td width="450" align="center" valign="middle"><c:out value="${l.getEmail()}"/></td>
 						<td width="350" align="center" valign="middle"><c:out value="${l.getPseudo()}"/></td>
-						<td width="450" align="center" valign="middle"><c:out value="${l.getSon_employe().getNom()+l.getSon_employe().getPrenom()}"/></td>
+						<td width="450" align="center" valign="middle"><c:out value="${l.getSon_employe().getNom()}"/><c:out value="${l.getSon_employe().getPrenom()}"/></td>
 						<td width="350" align="center" valign="middle"><a href = "" class = "modifier">Modifier</a></td>
-						
-						
-						
-						
-						</tr>
+					</tr>
 				</tbody>
 				</c:forEach>
 			
@@ -174,11 +168,11 @@
 </div>
 <div class="foot" id="foot">		
   			<div class="foot1">
-  				<div class="foot-text"><h3>&nbsp&nbspCONTACT</h3></div>
+  				<div class="foot-text"><h3>&nbsp&nbspkilian.kalypso@gmail.com</h3></div>
   				<div class= "foot-site"><a href="#">Nos conseillers vous répondent par téléphone, chat, mail ou bien encore grâce à nos SAV Facebook et Twitter</a></div>
   			</div>
    		 	<div class="foot2">
-   		 		<div class="foot-text"><h3>&nbsp&nbspCONTACT</h3></div>
+   		 		<div class="foot-text"><h3>&nbsp&nbsp+33 6 35 51 22 44</h3></div>
   				<div class= "foot-site"><a href="#"><p>Nos conseillers vous répondent par téléphone, chat, mail ou bien encore grâce à nos SAV Facebook et Twitter</p></a></div>
   			</div>
   			<div class="foot3">

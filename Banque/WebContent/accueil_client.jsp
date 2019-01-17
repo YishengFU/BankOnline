@@ -28,7 +28,6 @@
 		<ul>
 			<li style='float:left'><div class="icon"><img src="images/icon.png"/></div></li>
 			<li style='float:left'><h2><a href="http://localhost:8090/Banque/accueil.jsp">AEDI Banque</a></h2></li>
-			<li style='float:right'><a href="login.jsp"><div class ="roundRectangle1"><i class="icon ion-ios-locked-outline"></i>  Accéder à mes comptes</div></a></li>
 			<li style='float:right'><a href="compte_cree.jsp?id=${id_pers}"><div class ="roundRectangle">Créer un compte</div></a></li>
 		</ul>
 		</div>
@@ -153,11 +152,11 @@
 </div>
 <div class="foot" id="foot">		
   			<div class="foot1">
-  				<div class="foot-text"><h3>&nbsp&nbspCONTACT</h3></div>
+  				<div class="foot-text"><h3>&nbsp&nbspkilian.kalypso@gmail.com</h3></div>
   				<div class= "foot-site"><a href="#">Nos conseillers vous répondent par téléphone, chat, mail ou bien encore grâce à nos SAV Facebook et Twitter</a></div>
   			</div>
    		 	<div class="foot2">
-   		 		<div class="foot-text"><h3>&nbsp&nbspCONTACT</h3></div>
+   		 		<div class="foot-text"><h3>&nbsp&nbsp+33 6 35 51 22 44</h3></div>
   				<div class= "foot-site"><a href="#"><p>Nos conseillers vous répondent par téléphone, chat, mail ou bien encore grâce à nos SAV Facebook et Twitter</p></a></div>
   			</div>
   			<div class="foot3">
