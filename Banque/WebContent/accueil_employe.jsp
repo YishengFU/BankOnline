@@ -134,7 +134,7 @@
 						<td width="450" align="center" valign="middle"><c:out value="${l.getEmail()}"/></td>
 						<td width="350" align="center" valign="middle"><c:out value="${l.getPseudo()}"/></td>
 						<td width="450" align="center" valign="middle"><c:out value="${l.getSon_employe().getNom()}"/><c:out value="${l.getSon_employe().getPrenom()}"/></td>
-						<td width="350" align="center" valign="middle"><a href = "Modification?id=${String.valueOf(l.getId_pers)}" class = "modifier">Modifier</a></td>
+						<td width="350" align="center" valign="middle"><a href = "Modification?id=${String.valueOf(l.getId_pers())}" class = "modifier">Modifier</a></td>
 					</tr>
 				</tbody>
 				</c:forEach>

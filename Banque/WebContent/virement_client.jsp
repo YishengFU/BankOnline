@@ -72,7 +72,7 @@
 			</div>
 			<div class="log1-p1">
 			
-				Solide : <% out.println(solde);%> €
+				Solde : <% out.println(solde);%> €
 		
 			</div>
 			
