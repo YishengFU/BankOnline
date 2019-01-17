@@ -26,7 +26,7 @@
 			<li style='float:left'><div class="icon"><img src="images/icon.png"/></div></li>
 			<li style='float:left'><h2><a href="http://localhost:8090/Banque/accueil.jsp">AEDI Banque</a></h2></li>
 			<li style='float:right'><a href="login.jsp"><div class ="roundRectangle1"><i class="icon ion-ios-locked-outline"></i>  Accéder à mes comptes</div></a></li>
-			<li style='float:right'><a href="cree_compte.jsp"><div class ="roundRectangle">Créer un compte</div></a></li>
+			<li style='float:right'><a href="inscription.jsp"><div class ="roundRectangle"> S'inscrire</div></a></li>
 		</ul>
 		</div>
  	 </div>

@@ -92,7 +92,7 @@ public class InscriptionServlet extends HttpServlet {
 					out.flush();
 					out.println("<script>");
 					out.println("alert('Inscription successful')");
-					out.println("confirm('Pouvez-vous le connecter?')");
+					out.println("confirm('Voulez-vous vous connecter ?')");
 					out.println("window.location.href='login.jsp'");
 					out.println("</script>");
 					//response.sendRedirect("login.jsp");
