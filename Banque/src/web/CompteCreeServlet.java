@@ -1,6 +1,9 @@
 package web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,20 +11,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.Type_compteDAO;
-import pojo.Type_compte;
+import dao.CompteDAO;
+import dao.OperationDAO;
+import pojo.Compte;
+import pojo.Operation;
+import pojo.Personne;
 
 /**
- * Servlet implementation class CompteServlet
+ * Servlet implementation class CompteCreeServle
  */
-@WebServlet("/CompteServlet")
-public class CompteServlet extends HttpServlet {
+@WebServlet("/CompteCreeServle")
+public class CompteCreeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CompteServlet() {
+    public CompteCreeServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,26 +46,40 @@ public class CompteServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//doGet(request, response);
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
+		int id_type_compte = Integer.parseInt(request.getParameter("typecompte"));
+		int id_type_statut= Integer.parseInt(request.getParameter("statut"));
 		
 		try {
 				HttpSession session = request.getSession(false);
-			if(session!=null) {
-				 Type_compte TypeCompte = Type_compteDAO.getInstance().getById(Integer.parseInt((String) session.getAttribute("id_pers")));
-				 //session.setAttribute("libelle", TypeCompte.getLib_type_cpte());
-				 
-				 if(TypeCompte.getId_type_cpte()==1) {
+				int id_pers = (int) session.getAttribute("id_pers");
+				if (session != null) {
+				int currantCompte = CompteDAO.getInstance().createSimple(id_pers,id_type_compte,id_type_statut);
+				if(currantCompte >0 ) {
 					
-					String libelle = TypeCompte.getLib_type_cpte();
-					session.setAttribute("libelle", libelle);
+					
+					PrintWriter out = response.getWriter();
+					out.flush();
+					out.println("<script>");
+					out.println("alert('Votre compte a ete cree avec succes')");
+					out.println("window.location.href='accueil_client.jsp'");
+					out.println("</script>");
 				}
+
+			else {
+				PrintWriter out = response.getWriter();
+				out.flush();
+				out.println("<script>");
+				out.println("alert('Il faut se connecter')");
+				out.println("window.location.href='accueil.jsp'");
+				out.println("</script>");
 			}
-			
-			}catch(Exception e){
-					e.printStackTrace();
-				}
-	
+		
 		}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	
+	}
 }

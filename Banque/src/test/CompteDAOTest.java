@@ -53,8 +53,7 @@ public class CompteDAOTest {
 		// pour tester un Compte, il faut d'abord initialiser une Personne
 		// pour tester une Personne, il faut d'abord initialiser une Ville et un Statut
 		// partie date
-		DateTimeFormatter formatage = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-		LocalDate datetest = LocalDate.parse("2019/01/01", formatage);
+		LocalDate datetest = LocalDate.now();
 		// partie Ville
 		Ville v = new Ville("Test", "Test");
 		int v_cle = VilleDAO.getInstance().create(v);

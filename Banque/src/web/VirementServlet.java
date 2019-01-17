@@ -51,9 +51,7 @@ public class VirementServlet extends HttpServlet {
 			if (session != null) {
 				
 				Compte currantCompte = CompteDAO.getInstance().getById(id_compte);
-				System.out.println(currantCompte);
 				Personne currantPersonne = currantCompte.getSon_hote();
-				System.out.println(currantPersonne);
 				ArrayList<Compte> al_cpte = CompteDAO.getInstance().findById_pers(currantPersonne.getId_pers());
 				PrintWriter out = response.getWriter();
 				session.setAttribute("nom", currantPersonne.getNom());

@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="main.SQLconnexion" %>
@@ -10,9 +9,9 @@
 <head>
 	<head>
 		<meta charset = "UTF-8">
-		<title> Compte</title>
+		<title> Bienvenue</title>
 		<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css">
-		<link rel="stylesheet" type="text/css" href="./css/compte_client.css">	
+		<link rel="stylesheet" type="text/css" href="./css/accueil_client.css">	
 	</head>
     <body>
 <div class="head" id="head">
@@ -30,14 +29,10 @@
 			<li style='float:left'><div class="icon"><img src="images/icon.png"/></div></li>
 			<li style='float:left'><h2><a href="http://localhost:8090/Banque/accueil.jsp">AEDI Banque</a></h2></li>
 			<li style='float:right'><a href="login.jsp"><div class ="roundRectangle1"><i class="icon ion-ios-locked-outline"></i>  Accéder à mes comptes</div></a></li>
-			<li style='float:right'><a href="inscription.jsp"><div class ="roundRectangle">Ouvrir un compte</div></a></li>
+			<li style='float:right'><a href="compte_cree.jsp?id=${id_pers}"><div class ="roundRectangle">Créer un compte</div></a></li>
 		</ul>
 		</div>
-    		<div class="container" >
-  				<input type="text" placeholder="Recherche...">
-  			<div class="search"></div>
-			</div>
-			
+ 
  	 </div>
   
 <div class="centre" id="centre">
@@ -88,10 +83,11 @@
 			<div class="picture"><img src="images/city3.png"/></div>
 		<!-- <div class="panel-contenu"> -->
 				<div class="panel-contenu">
-        			<center><h1>Bienvenue
+        			<center><h1>Bienvenue, 
         				<i><%
 	        				String prenom =(String)session.getAttribute("prenom");
 							String nom =(String) session.getAttribute("nom");
+							int id_pers = (int) session.getAttribute("id_pers");
 							ArrayList<Compte> comptes  = (ArrayList<Compte>) session.getAttribute("comptes");
 							out.println(prenom);
 							out.println(nom);
@@ -104,13 +100,16 @@
 			<div class="sous-panel1">
 				<div class = "tableaffichage">
 			<table align = "center">
+			<caption>
+			<h2></h2>
+			</caption>
 			<thead>
 			
 				<tr>
 					
-					<th width="100" align="center" valign="middle">Libelle</th>
-					<th width="100" align="center" valign="middle">Id Compte</th>
-					<th width="100" align="center" valign="middle">Solde</th>
+					<th width="350" align="center" valign="middle">Libelle</th>
+					<th width="350" align="center" valign="middle">Id Compte</th>
+					<th width="350" align="center" valign="middle">Solde</th>
 					
 				</tr>
 			</thead>

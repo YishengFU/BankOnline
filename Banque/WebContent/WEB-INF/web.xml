@@ -41,4 +41,12 @@
     <servlet-name>ComfirmerVirementServlet</servlet-name>
     <url-pattern>/virement</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>CompteCreeServlet</servlet-name>
+    <servlet-class>web.CompteCreeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CompteCreeServlet</servlet-name>
+    <url-pattern>/creer</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -7,7 +7,7 @@
 <html>
 	<head>
 		<meta charset = "UTF-8">
-		<title>Cree_Compte</title>
+		<title> Cree_Compte</title>
 		<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css">
 		<link rel="stylesheet" href="css/compte_cree.css">
 		<script type ="text/javascript">
@@ -88,107 +88,58 @@
 <div class="centre" id="centre">
 
 	<section class="glisser">
-        <div class="panel-inscription" id="panel-inscription">      
-		<div class="inscription">
+        <div class="panel-compte" id="panel-compte">      
+		<div class="compte">
 			<div class="ins institre">
-				<h2 class="p1">Cree_compte</h2>
+				<h2 class="p1">Créer Compte</h2>
 			</div>
-		<form action ="Inscription" method="post" onsubmit="return entree()">
-		<div class="left">
-			<div class="ins-p1">
-				<i class="icon ion-ios-person-outline"></i>
-				<input type="text"
-					name= "nom" id="nom" class="textfield" placeholder="nom" >
-			</div>
-			<div class="ins-p1">
-				<i class="icon ion-ios-person-outline"></i>
-				<input type="text"
-					name="prenom" id="prenom" class="textfield" placeholder="prénom" >
-			</div>
-			<div class="ins-p1">
-				<i class="icon ion-ios-clock-outline"></i>
-				<input type="date"
-					name="datenais" id="datenais" class="textfield" placeholder="JJ/MM/AAAA" >
-			</div>
-			<div class="ins-p1">
-				<i class="icon ion-ios-home-outline"></i>
-				<input type="text"
-					name="adresse" id="adresse" class="textfield" placeholder="adresse" >
-			</div>
+		<form action ="creer" method="post" onsubmit="return entree()">
+		
+	
 			<div class="ins-p1">
 				
-				<select name= "ville" id ="ville" style="width:335px; height: 30px; margin-bottom:20px;">
+				<select name= "typecompte" id ="typecompte" style="width:335px; height: 30px; margin-bottom:20px;">
 				<%
     					request.setCharacterEncoding("UTF-8");
-    					String req = "select * from VILLE";
+    					String req = "select * from TYPE_COMPTE";
     				try{
 					        PreparedStatement ps = SQLconnexion.getInstance().creeConnexion().prepareStatement(req);
 					        ResultSet rs = ps.executeQuery();
 					        while(rs.next()){%>       
-       							<option value='<%=rs.getInt("id_ville")%>'><%=rs.getString("lib_ville")%></option>;
-       						 });
+       							<option value='<%=rs.getInt("id_type_cpte")%>'><%=rs.getString("lib_type_cpte")%></option>
+       						
        					 <% }
 					   }catch(Exception e){}				
 				%>
+				</select>
 			
 			
 			</div>
-			<div class="ins-radio">
-				
-				<input type = "radio"  name = "sexe"  value = "1" checked="checked"> Homme
-			</div>
-		</div>
-			
-		<div class="right">	
 		
-			<div class="ins-p1">
-				<i class="icon ion-ios-telephone-outline"></i>
-				<input type="text"
-					name="tel" id="tel" class="textfield" placeholder="numéro de téléphone" >
-			</div>
-			<div class="ins-p1">
-				<i class="icon ion-ios-email-outline"></i>
-				<input type="text"
-					name="mail" id="mail" class="textfield" placeholder="exemple@gmail.com" >
-			</div>
-			<div class="ins-p1">
-				<i class="icon ion-ios-locked-outline"></i>
-				<input type="text"
-					name="pseudo" id="pseudo" class="textfield" placeholder="pseudo" >
-			</div>
-			<div class="ins-p1">
-				<i class="icon ion-ios-locked-outline"></i>
-				<input type="password"
-					name="mdp" id="mdp" class="textfield" placeholder="mot de passe" >
-			</div>
+			
 			<div class="ins-p1">
 				
 				<select name= "statut" id ="statut" style="width:335px; height: 30px; margin-bottom:20px;">
 				<%
     					request.setCharacterEncoding("UTF-8");
-    					String reqq = "select * from STATUT";
+    					String reqs = "select * from STATUT";
     				try{
-					        PreparedStatement ps = SQLconnexion.getInstance().creeConnexion().prepareStatement(reqq);
+					        PreparedStatement ps = SQLconnexion.getInstance().creeConnexion().prepareStatement(reqs);
 					        ResultSet rs = ps.executeQuery();
 					        while(rs.next()){%>       
-       							<option value='<%=rs.getInt("id_statut")%>'><%=rs.getString("lib_statut")%></option>;
-       						 });
-       					 <% }
+       							<option value='<%=rs.getInt("id_statut")%>'><%=rs.getString("lib_statut")%></option><% 	
+       							}
 					   }catch(Exception e){}				
 				%>
+			</select>
 			
 			
-			</div>
-			<div class="ins-radio">
-				
-				<input type = "radio" name = "sexe" value = "2"> Femme
-			</div>
 		</div>
 		
 			<div class="ins-p2">
 				<input type="submit" class="button" name ="valider" value="valider" onclick="return inscription()">
 			</div>
-			<div class="ins-p3"><a class="site" href="accueil.jsp">annuler</a></div> 
+			<div class="ins-p3"><a class="site" href="accueil_client.jsp">annuler</a></div> 
 		</div>	
 	</form>
 	</div>	

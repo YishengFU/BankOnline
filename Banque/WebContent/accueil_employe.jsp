@@ -30,7 +30,7 @@
 			<li style='float:left'><div class="icon"><img src="images/icon.png"/></div></li>
 			<li style='float:left'><h2><a href="http://localhost:8090/Banque/accueil.jsp">AEDI Banque</a></h2></li>
 			<li style='float:right'><a href="logout"><div class ="roundRectangle1"> Se déconnecter</div></a></li>
-			<li style='float:right'><a href="inscription.jsp"><div class ="roundRectangle">Ouvrir un compte</div></a></li>
+			<li style='float:right'><a href="cree_compte.jsp"><div class ="roundRectangle">Créer un compte</div></a></li>
 		</ul>
 		</div>		
  	 </div>
@@ -81,14 +81,19 @@
   				</div>
 		</div>
 			<div class="picture"><img src="images/city3.png"/></div>
-		<!-- <div class="panel-contenu"> -->
 					<div class="panel-contenu">
-        			<h2>BIENVENUE SUR MABANQUE</h2>
-        			<p>Des solutions adaptées pour tous besoins : gestion et</p>
-        			<p>ouverture de compte en ligne, simulation de crédit, assurance,</p>
-        
+        			<center><h1>Bienvenue, 
+        				<i><%
+	        				String prenom =(String)session.getAttribute("prenom");
+							String nom =(String) session.getAttribute("nom");
+							ArrayList<Personne> al_pers = EmployeDAO.getInstance().findCustomers(e.getId_employe());
+							out.println(prenom);
+							out.println(nom);
+						%>
+						</i>
+        			</h1>
+      			</center>
         		</div>
-  		<!--</div>  -->
 			<div class="sous-panel1"><!-- à faire -->
 			
 			</div>

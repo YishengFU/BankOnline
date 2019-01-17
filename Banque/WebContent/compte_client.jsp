@@ -10,9 +10,9 @@
 <head>
 	<head>
 		<meta charset = "UTF-8">
-		<title>Bienvenue</title>
+		<title>Compte</title>
 		<link rel="stylesheet" type="text/css" media="screen" href="https://cdn.staticfile.org/ionicons/2.0.1/css/ionicons.min.css">
-		<link rel="stylesheet" type="text/css" href="./css/accueil_client.css">	
+		<link rel="stylesheet" type="text/css" href="./css/compte_client.css">	
 	</head>
     <body>
 <div class="head" id="head">
@@ -30,7 +30,6 @@
 			<li style='float:left'><div class="icon"><img src="images/icon.png"/></div></li>
 			<li style='float:left'><h2><a href="http://localhost:8090/Banque/accueil.jsp">AEDI Banque</a></h2></li>
 			<li style='float:right'><a href="logout"><div class ="roundRectangle1"> Se déconnecter</div></a></li>
-			<li style='float:right'><a href="inscription.jsp"><div class ="roundRectangle">Ouvrir un compte</div></a></li>
 		</ul>
 		</div>
 			

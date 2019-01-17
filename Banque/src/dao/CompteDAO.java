@@ -83,7 +83,11 @@ public class CompteDAO implements DAO<Compte> {
 //				Compte_epargne ce=(Compte_epargne)x1;
 				this.reqprep.setDouble(5, 0);
 			}
-			this.reqprep.setDate(6, java.sql.Date.valueOf(x1.getDate_creation()));
+			if(x1.getDate_creation()==null) {
+				this.reqprep.setDate(6, java.sql.Date.valueOf(LocalDate.now()));
+			}else {
+				this.reqprep.setDate(6, java.sql.Date.valueOf(x1.getDate_creation()));
+			}
 			this.reqprep.executeUpdate();
 			ResultSet resset = this.reqprep.getGeneratedKeys();
 			while (resset.next()) {
@@ -96,7 +100,30 @@ public class CompteDAO implements DAO<Compte> {
 		}
 		return -1;
 	}
-
+	
+	public int createSimple(int id_pers, int id_type_cpte, int id_statut_cpte) {
+		  String req = "insert into COMPTE (id_pers, id_type_cpte, id_statut_cpte, solde, montant_decouvert"
+		    + ", date_creation)" + " values(?,?,?,0,0,?)";
+		  try {
+		   this.reqprep = SQLconnexion.getInstance().creeConnexion().prepareStatement(req,
+		     Statement.RETURN_GENERATED_KEYS);
+		   this.reqprep.setInt(1, id_pers);
+		   this.reqprep.setInt(2, id_type_cpte);
+		   this.reqprep.setInt(3, id_statut_cpte);
+		   this.reqprep.setDate(4, java.sql.Date.valueOf(LocalDate.now()));
+		   this.reqprep.executeUpdate();
+		   ResultSet resset = this.reqprep.getGeneratedKeys();
+		   while (resset.next()) {
+		    System.out.println("Ajoute");
+		    return resset.getInt(1);
+		   }
+		  } catch (SQLException sqle) {
+		   System.out.println("SQL Syntaxe Erreur.");
+		   System.out.println(sqle.getMessage());
+		  }
+		  return -1;
+		 }
+	
 	@Override
 	public void update(Compte x1) {
 		String req = "Update COMPTE set id_pers=?, id_type_cpte=?, id_statut_cpte=?, solde=?"

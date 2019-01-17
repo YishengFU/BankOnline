@@ -39,7 +39,6 @@
 		<ul>
 			<li style='float:left'><div class="icon"><img src="images/icon.png"/></div></li>
 			<li style='float:left'><h2><a href="http://localhost:8090/Banque/accueil.jsp">AEDI Banque</a></h2></li>
-			<li style='float:right'><a href="inscription.jsp"><div class ="roundRectangle">Ouvrir un compte</div></a></li>
     		
 		</ul>
 		</div>
@@ -63,7 +62,7 @@
 						
 			<div class="log1-p1">
 				
-				 ID:<% out.println(idcompte);%>
+				 ID: <% out.println(idcompte);%>
 				
 			</div>
 			<div class="log1-p1">
@@ -73,17 +72,10 @@
 			</div>
 			<div class="log1-p1">
 			
-				Solide :<% out.println(solde);%>
+				Solide : <% out.println(solde);%> €
 		
 			</div>
 			
-				
-			
-			<div class="log1-p1">
-				<i class="icon ion-ios-chatbubble-outline"></i>
-				<input type="text"
-					name="message" id="message" class="textfield1" placeholder="Motif du virement" >
-			</div>
 			
 			
 		</div>	
@@ -98,17 +90,17 @@
 			<div class="log-p1">
 				<i class="icon ion-ios-person-outline"></i>
 				<input type="text"
-					name= "nom" id="nom" class="textfield" placeholder="nom de client" >
+					name= "nom" id="nom" class="textfield" placeholder="Nom prénom" >
 			</div>
 			<div class="log-p1">
 				<i class="icon ion-ios-person-outline"></i>
 				<input type="text"
-					name="id_compte_but" id="id_compte_but" class="textfield" placeholder="id compte " >
+					name="id_compte_but" id="id_compte_but" class="textfield" placeholder="Id compte " >
 			</div>
 			<div class="log-p1">
 				<i class="icon ion-ios-locked-outline"></i>
 				<input type="text"
-					name="montant" id="montant" class="textfield" placeholder="montant € " >
+					name="montant" id="montant" class="textfield" placeholder="Montant € " >
 			</div>
 			<div class="log-p2">
 				<input type="submit" class="button" name ="valider" value="valider" onclick="return entree()">

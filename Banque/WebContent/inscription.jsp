@@ -98,12 +98,12 @@
 			<div class="ins-p1">
 				<i class="icon ion-ios-person-outline"></i>
 				<input type="text"
-					name= "nom" id="nom" class="textfield" placeholder="nom" >
+					name= "nom" id="nom" class="textfield" placeholder="Nom" >
 			</div>
 			<div class="ins-p1">
 				<i class="icon ion-ios-person-outline"></i>
 				<input type="text"
-					name="prenom" id="prenom" class="textfield" placeholder="prénom" >
+					name="prenom" id="prenom" class="textfield" placeholder="Prénom" >
 			</div>
 			<div class="ins-p1">
 				<i class="icon ion-ios-clock-outline"></i>
@@ -113,7 +113,7 @@
 			<div class="ins-p1">
 				<i class="icon ion-ios-home-outline"></i>
 				<input type="text"
-					name="adresse" id="adresse" class="textfield" placeholder="adresse" >
+					name="adresse" id="adresse" class="textfield" placeholder="Adresse" >
 			</div>
 			<div class="ins-p1">
 				
@@ -144,22 +144,22 @@
 			<div class="ins-p1">
 				<i class="icon ion-ios-telephone-outline"></i>
 				<input type="text"
-					name="tel" id="tel" class="textfield" placeholder="numéro de téléphone" >
+					name="tel" id="tel" class="textfield" placeholder="Numéro de téléphone" >
 			</div>
 			<div class="ins-p1">
 				<i class="icon ion-ios-email-outline"></i>
 				<input type="text"
-					name="mail" id="mail" class="textfield" placeholder="exemple@gmail.com" >
+					name="mail" id="mail" class="textfield" placeholder="Exemple@gmail.com" >
 			</div>
 			<div class="ins-p1">
 				<i class="icon ion-ios-locked-outline"></i>
 				<input type="text"
-					name="pseudo" id="pseudo" class="textfield" placeholder="pseudo" >
+					name="pseudo" id="pseudo" class="textfield" placeholder="Pseudo" >
 			</div>
 			<div class="ins-p1">
 				<i class="icon ion-ios-locked-outline"></i>
 				<input type="password"
-					name="mdp" id="mdp" class="textfield" placeholder="mot de passe" >
+					name="mdp" id="mdp" class="textfield" placeholder="Mot de passe" >
 			</div>
 			<div class="ins-p1">
 				

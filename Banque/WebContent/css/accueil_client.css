@@ -3,30 +3,28 @@
 	margin: 0;
 	padding: 0;	
 }
-table{
-	border-collapse : collapse;
-}
 .body{
 	height:100%;
 	width: 100%;
 	margin-bottom:-10px;
 }
-tbody{
-	
-	display : block;
-	overflow-y : auto;
-	overflow-x : hidden;
-}
-thead, tr {
 
-	display : block;
+a {
+    display: block;
+    color:  RGB(46, 197, 240);
+    text-align: center;
+    text-decoration: none;
 }
-td{
-	border : 1px solid black;
+
+a:hover {
+	color:white;
+    background-color: RGB(52, 194, 169);
 }
+
+
 
 #centre {
-	height: 1000px;
+	height: 800px;
 	width: auto;
 	margin-left:-10px;
 	margin-right:-10px;
@@ -182,6 +180,125 @@ td{
 	box-shadow: 2px 1px 1px #888888;
 }
 
+#head .container {
+  position: absolute;
+  margin: auto;
+  top: 37px;
+  left: 280px;
+  right: 0;
+  bottom: 0;
+  width: 200px;
+  height: 100px;
+}
+.container .search {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 48px;
+  height: 48px;
+  background: RGB(52, 194, 169);
+  border-radius: 50%;
+  transition: all 1s;
+  z-index: 4;
+}
+.container .search:hover {
+  cursor: pointer;
+}
+.container .search::before {
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: 22px;
+  right: 0;
+  bottom: 0;
+  left: 22px;
+  width: 12px;
+  height: 2px;
+  background: white;
+  transform: rotate(45deg);
+  transition: all .5s;
+}
+.container .search::after {
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: -5px;
+  right: 0;
+  bottom: 0;
+  left: -5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid white;
+  transition: all .5s;
+}
+.container input {
+  font-family:"SimSun";
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 42px;
+  height: 42px;
+  outline: none;
+  border: none;
+  background: RGB(52, 194, 169);
+  color: white;
+  padding: 0 0 0 5px;
+  border-radius: 30px;
+  transition: all 1s;
+  opacity: 0;
+  z-index: 5;
+  font-weight: bold;
+  font-size:15px;
+}
+.container input:hover {
+  cursor: pointer;
+}
+.container input:focus {
+  width: 450px;
+  left: -400px;
+  opacity: 1;
+  cursor: text;
+}
+.container input:focus ~ .search {
+  right:-40px;
+  background: RGB(33, 122, 77);
+  z-index: 6;
+}
+.container input:focus ~ .search::before {
+  top: 0;
+  left: 0;
+  width: 25px;
+}
+.container input:focus ~ .search::after {
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 2px;
+  border: none;
+  background: white;
+  border-radius: 0%;
+  transform: rotate(-45deg);
+}
+.container input::placeholder {
+  color: white;
+  opacity: 0.5;
+  font-weight: bold;
+  font-size:15px;
+}
+
+
+
+
+
+
+
 
 
 /********************************   Centre1   ********************************************/
@@ -204,8 +321,6 @@ td{
   left: 45px;
   padding: 20px 40px 35px 60px;
   margin: 3px;  
-  x-box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.5);
-  box-shadow: 8px 0 8px -8px rgba(0, 0, 0, 0.5);
   background: #fff;
   transition: all 0.3s ease-in-out 0.1s;
 }
@@ -214,9 +329,6 @@ td{
   position: relative;
   left: 100%;
   margin-left: -32px;
-  box-shadow: 
-    0 -8px 8px -8px rgba(0, 0, 0, 0.5),
-    0 8px 8px -8px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease-in-out;
   background: linear-gradient(to right, RGB(21, 145, 92) , RGB(95, 194, 110));
   border:2px solid linear-gradient(to right, RGB(21, 145, 92) , RGB(95, 194, 110));
@@ -227,8 +339,6 @@ td{
   left: 45px;
   padding: 20px 40px 35px 60px;
   margin: 3px;  
-  x-box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.5);
-  box-shadow: 8px 0 8px -8px rgba(0, 0, 0, 0.5);
   background: #fff;
   transition: all 0.3s ease-in-out 0.1s;
 }
@@ -237,9 +347,6 @@ td{
   position: relative;
   left: 100%;
   margin-left: -32px;
-  box-shadow: 
-    0 -8px 8px -8px rgba(0, 0, 0, 0.5),
-    0 8px 8px -8px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease-in-out;
   background: linear-gradient(to right, RGB(45, 149, 235) , RGB(46, 197, 240));
   border:2px solid linear-gradient(to right, RGB(45, 149, 235) , RGB(46, 197, 240));
@@ -251,8 +358,6 @@ td{
   left: 45px;
   padding: 20px 40px 35px 60px;
   margin: 3px;  
-  x-box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.5);
-  box-shadow: 8px 0 8px -8px rgba(0, 0, 0, 0.5);
   background: #fff;
   transition: all 0.3s ease-in-out 0.1s;
 }
@@ -261,9 +366,6 @@ td{
   position: relative;
   left: 100%;
   margin-left: -32px;
-  box-shadow: 
-    0 -8px 8px -8px rgba(0, 0, 0, 0.5),
-    0 8px 8px -8px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease-in-out;
   background: linear-gradient(to right, RGB(129, 84, 166) , RGB(204, 100, 166));
   border:2px solid linear-gradient(to right, RGB(129, 84, 166) , RGB(204, 100, 166));
@@ -275,7 +377,6 @@ td{
   left: 45px;
   padding: 20px 40px 35px 60px;
   margin: 3px;  
-  x-box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 8px 0 8px -8px rgba(0, 0, 0, 0.5);
   background: #fff;
   transition: all 0.3s ease-in-out 0.1s;
@@ -285,9 +386,6 @@ td{
   position: relative;
   left: 100%;
   margin-left: -32px;
-  box-shadow: 
-    0 -8px 8px -8px rgba(0, 0, 0, 0.5),
-    0 8px 8px -8px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease-in-out;
   background: linear-gradient(to right, RGB(235, 93, 72) , RGB(235, 143, 70));
   border:2px solid linear-gradient(to right, RGB(235, 93, 72) , RGB(235, 143, 70));
@@ -299,8 +397,6 @@ td{
   left: 45px;
   padding: 20px 40px 35px 60px;
   margin: 3px;  
-  x-box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.5);
-  box-shadow: 8px 0 8px -8px rgba(0, 0, 0, 0.5);
   background: #fff;
   transition: all 0.3s ease-in-out 0.1s;
 }
@@ -309,9 +405,6 @@ td{
   position: relative;
   left: 100%;
   margin-left: -32px;
-  box-shadow: 
-    0 -8px 8px -8px rgba(0, 0, 0, 0.5),
-    0 8px 8px -8px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease-in-out;
   background: linear-gradient(to right, RGB(48, 189, 82) , RGB(117, 208, 85));
   border:2px solid linear-gradient(to right, RGB(48, 189, 82) , RGB(117, 208, 85));
@@ -333,9 +426,6 @@ td{
   position: relative;
   left: 100%;
   margin-left: -32px;
-  box-shadow: 
-    0 -8px 8px -8px rgba(0, 0, 0, 0.5),
-    0 8px 8px -8px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease-in-out;
   background: linear-gradient(to right, #F6416C , #FFF687);
   border:2px solid linear-gradient(to right, #F6416C , #FFF687);
@@ -350,7 +440,6 @@ td{
   white-space: nowrap;
   
 }
-
 
 .bg-01 { 
   background: RGB(95, 194, 110);
@@ -383,20 +472,20 @@ td{
   border-radius:10px; 
 }
 
+
 #centre .panel-contenu{
-	top: 3%;
-	right: 45%;
+	top: 5%;
+	left: 25%;
 	width: 550px;
 	height: auto;
 	margin-left: 10px;
 	margin-top: 10px;
 	margin-right: 10px;
-	font-size: 14px;
+	font-size: 25px;
 	color:white;
 	position: absolute;
 	z-index: 8;
 }
-
 
 .picture
 { 
@@ -412,10 +501,10 @@ td{
 	opacity: 0.95;
 } 
 #centre .sous-panel1 {
-	top: 15%;
-	left: 10%;
-	width: 1000px;
-	height: 630px;
+	top: 30%;
+	right: 64%;
+	width: 300px;
+	height: 500px;
 	margin-left: 10px;
 	margin-top: 10px;
 	margin-right: 10px;
@@ -426,38 +515,35 @@ td{
 	border-radius:10px;
 	box-shadow: 2px 2px 2px #888888;
 }
-
-#centre .sous-panel1 .tableaffichage{
-	top: 0%;
-	left: 0%;
-	width: 1000px;
-	height: 630px;
+#centre .sous-panel1 {
+	top: 20%;
+	left: 23%;
+	width: 600px;
+	height: 500px;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-right: 10px;
 	font-size: 14px;
 	background:RGB(240,255,255);
 	position: absolute;
 	border:2px solid linear-gradient(to right, RGB(21, 145, 92) , RGB(95, 194, 110));
 	border-radius:10px;
 	box-shadow: 2px 2px 2px #888888;
+}
+
+.sous-panel1 .tableaffichage{
+	top: 0%;
+	left: 0%;
+	width: 600px;
+	height: 500px;
+	font-size: 14px;
+	position: absolute;
+	background:RGB(240,255,255);
+	border:2px solid linear-gradient(to right, RGB(21, 145, 92) , RGB(95, 194, 110));
+	border-radius:10px;
+	box-shadow: 2px 2px 2px #888888;
 	position : absulut;
 }
-
-
-
-#centre .panel-contenu{
-	top: 3%;
-	right: 45%;
-	width: 550px;
-	height: auto;
-	margin-left: 10px;
-	margin-top: 10px;
-	margin-right: 10px;
-	font-size: 14px;
-	color:white;
-	position: absolute;
-	z-index: 8;
-}
-
-
 
 /***************************************  Centre 2************************************************/
 #centre2 .centre2-contenu{

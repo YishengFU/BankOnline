@@ -4,12 +4,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import main.SQLconnexion;
 import pojo.Employe;
 import pojo.Personne;
 import pojo.Poste;
+import pojo.Sexe;
+import pojo.Statut;
+import pojo.Ville;
 
 public class EmployeDAO implements DAO<Employe> {
 	private static EmployeDAO instance;
@@ -157,8 +161,8 @@ public class EmployeDAO implements DAO<Employe> {
 		return this.al;
 	}
 
-	public boolean estEmploye(String pseudo_emp, String mdp_emp) {
-		boolean employe = false;
+	public Employe login(String pseudo_emp, String mdp_emp) {
+		Employe e=null;
 		String req = "select * from EMPLOYE where pseudo_emp=? and mdp_emp=?";
 		try {
 			this.reqprep = SQLconnexion.getInstance().creeConnexion().prepareStatement(req);
@@ -166,15 +170,50 @@ public class EmployeDAO implements DAO<Employe> {
 			this.reqprep.setString(2, mdp_emp);
 			ResultSet resset = this.reqprep.executeQuery();
 			if (resset.next()) {
-				employe = true;
-				System.out.println("C'est un employe");
+				e=EmployeDAO.getInstance().getById(resset.getInt("id_employe"));
+				System.out.println("login successed");
 			} else {
-				System.out.println("Ce n'est pas un employe");
+				System.out.println("login failed");
 			}
 		} catch (SQLException sqle) {
 			System.out.println("SQL Syntaxe Erreur.");
 			System.out.println(sqle.getMessage());
 		}
-		return employe;
+		return e;
 	}
+	
+	public ArrayList<Personne> findCustomers(int id_charge_clientele) {
+		  String req = "select * from PERSONNE where id_charge_clientele=?";
+		  ArrayList<Personne> al_pers=new ArrayList<Personne>();
+		  try {
+			this.reqprep = SQLconnexion.getInstance().creeConnexion().prepareStatement(req);
+			this.reqprep.setInt(1, id_charge_clientele);
+			ResultSet resset = this.reqprep.executeQuery();
+			while (resset.next()) {
+				int res1 = resset.getInt("id_pers");
+				String res2 = resset.getString("nom");
+				String res3 = resset.getString("prenom");
+				LocalDate res4 = resset.getDate("date_naissance").toLocalDate();
+				String res5 = resset.getString("adresse");
+				Ville res6 = VilleDAO.getInstance().getById(resset.getInt("id_ville"));
+				Sexe res7 = new Sexe(resset.getInt("id_sexe"));
+				// comme on n'a que 2 sexes, dans le constructeur de sexe
+				// c'est indique qu'on peut initialiser selon id_sexe
+				Statut res8 = StatutDAO.getInstance().getById(resset.getInt("id_statut"));
+				String res9 = resset.getString("telephone");
+				String res10 = resset.getString("email");
+				String res11 = resset.getString("pseudo");
+				String res12 = resset.getString("mdp");
+				Employe res13 = EmployeDAO.getInstance().getById(resset.getInt("id_charge_clientele"));
+				al_pers.add(
+						new Personne(res1, res2, res3, res4, res5, res6, res7, res8, res9, res10, res11, res12, res13));
+			}
+		  } catch (SQLException sqle) {
+		   System.out.println("SQL Syntaxe Erreur.");
+		   System.out.println(sqle.getMessage());
+		  }
+		  return al_pers;
+		 }
+	
+	
 }

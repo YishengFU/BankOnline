@@ -6,7 +6,7 @@
 }
 
 #centre {
-	height: 1000px;
+	height: 800px;
 	width: auto;
 	margin-left:-10px;
 	margin-right:-10px;
@@ -226,60 +226,31 @@
 	background-color:rgb(71,148,179);
 }
 
-/********************************   Inscription   ********************************************/
+/********************************   Creer Compte   ********************************************/
 
 
-#centre .glisser .panel-inscription{
+#centre .glisser .panel-compte{
     margin: 0;
     z-index: 2;
 	background-color: RGB(231, 231, 231);
 	opacity: 0.9;
-	height: 700px;
-	width: 1000px;  
-	position: absolute;
-	background-color: #FFFFFF;
-	top: 20%;
-	left: 10%;
-}
-
-
-.panel-inscription .right{
-	margin: 0;
-    z-index: 3;
-	background-color: RGB(231, 231, 231);
-	opacity: 0.9;
 	height: 500px;
-	width: 380px;  
+	width: 600px;  
 	position: absolute;
 	background-color: #FFFFFF;
-	top: 15%;
-	left: 50%;
-	
+	top: 25%;
+	left: 25%;
 }
 
-.panel-inscription .left{
-	margin: 0;
-    z-index: 3;
-	background-color: RGB(231, 231, 231);
-	opacity: 0.9;
-	height: 500px;
-	width: 380px;  
-	position: absolute;
-	background-color: #FFFFFF;
-	top: 15%;
-	left: 10%;
-	/*border-right: 1px solid #ee7700;*/
-}
 
 .ins-p2 .button {
-	top:30px;
-	width: 60%;
+	top:35%;
+	width: 55%;
 	height: 45px;
 	background-color: #ee7700;
 	border: none;
 	color: white;
-	margin-top: 49%;
-	margin-left:20%;
+	margin-left:25%;
 	margin-bottom:10px;
 	font-size: 18px;
 	
@@ -289,14 +260,14 @@
 	background-color: #CC9933;
 	}
 
-.inscription .ins-p1.institre .p1 {
+.compte .ins-p1.institre .p1 {
 	display: inline-block;
 	font-size: 35px;
 	margin-bottom: 0px;
 	width: 86%;
 	text-align: center;
 }
-.inscription .ins.institre {
+.compte .ins.institre {
 	width: 86%;
 	border-bottom: 1px solid #ee7700;
 	margin-bottom: 60px;
@@ -304,23 +275,24 @@
 	margin-right: auto;
 	margin-left: auto;
 }
-.inscription .ins-p1 i {
+.compte .ins-p1 i {
 	position: absolute;
 	top: 14px;
 	left: 15px;
 }
-.inscription .ins-p1 .textfield {
+.compet .ins-p1 .textfield {
 	width: 100%;
 	height: 42px;
 	text-indent: 2.5rem;
 }
-.panel-inscription .inscription .ins-p1 {
+.panel-compte .compte .ins-p1 {
 	width: 86%;
 	position: relative;
-	margin-bottom: 30px;
+	margin-bottom: 40px;
 	margin-top: 30px;
 	margin-right: auto;
 	margin-left: auto;
+	left:19%;
 }
 .ins-p3 a.site {
 	text-decoration: none;

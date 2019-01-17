@@ -39,7 +39,7 @@
 		<ul>
 			<li style='float:left'><div class="icon"><img src="images/icon.png"/></div></li>
 			<li style='float:left'><h2><a href="http://localhost:8090/Banque/accueil.jsp">AEDI Banque</a></h2></li>
-			<li style='float:right'><a href="inscription.jsp"><div class ="roundRectangle">Ouvrir un compte</div></a></li>
+			<li style='float:right'><a href="inscription.jsp"><div class ="roundRectangle">S'inscrire</div></a></li>
     		
 		</ul>
 		</div>
@@ -62,24 +62,24 @@
 			<div class="log-p1">
 				<i class="icon ion-ios-person-outline"></i>
 				<input type="text"
-					name= "pseudo" id="pseudo" class="textfield" placeholder="numéro client" >
+					name= "pseudo" id="pseudo" class="textfield" placeholder="Numéro client" >
 			</div>
 			<div class="log-p1">
 				<i class="icon ion-ios-locked-outline"></i>
 				<input type="password"
-					name="mdp" id="mdp" class="textfield" placeholder="mot de passe" >
+					name="mdp" id="mdp" class="textfield" placeholder="Mot de passe" >
 			</div>
 			<div class="log-p2">
 				<input type="submit" class="button" name ="valider" value="valider" onclick="return entree()">
 			</div>
 			<div class="log-p3">
 				
-				<input type = "radio" class = "r1" name = "typeclient" value = "1" checked="checked"> Client
+				<input type = "radio"  name = "type_personne" value = "1" checked="checked"> Client
 			
 			</div>
 			<div class="log-p4">
 				
-				<input type = "radio" class = "r2" name = "typeclient" value = "2"> Administrateur
+				<input type = "radio"  name = "type_personne" value = "2"> Employe
 			
 			</div> 
 			
