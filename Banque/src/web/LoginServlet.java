@@ -93,14 +93,21 @@ public class LoginServlet extends HttpServlet {
 					PrintWriter out = response.getWriter();
 					out.flush();
 					out.println("<script>");
-					out.println("alert('Le client n'existe pas ou le mot de passe est incorrect')");
+					out.println("alert('Employe existe pas ou le mot de passe est incorrect')");
 					out.println("history.back()");
 					out.println("</script>");
 				} else {
 					HttpSession session = request.getSession(false);
 					ArrayList<Personne> al_pers = EmployeDAO.getInstance().findCustomers(e.getId_employe());
-					System.out.println(al_pers);
 					session.setAttribute("personnes", al_pers);
+					session.setAttribute("nom", e.getNom());
+					session.setAttribute("prenom", e.getPrenom());
+					PrintWriter out = response.getWriter();
+					out.flush();
+					out.println("<script>");
+					out.println("alert('Login successful')");
+					out.println("window.location.href='accueil_employe.jsp'");
+					out.println("</script>");
 				}
 				
 

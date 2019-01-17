@@ -65,54 +65,55 @@ public class PersonneDAO implements DAO<Personne> {
 	}
 
 	@Override
-	 public int create(Personne x1) {
-	  String req0="select * from PERSONNE where pseudo=?";
-	  try {
-	   this.reqprep = SQLconnexion.getInstance().creeConnexion().prepareStatement(req0);
-	   this.reqprep.setString(1, x1.getPseudo());
-	   this.reqprep.executeQuery();
-	   ResultSet resset = this.reqprep.getGeneratedKeys();
-	   while (resset.next()) {
-	    System.out.println("Pseudo existe deja");
-	    return -1;
-	   }
-	  }catch (SQLException sqle) {
-	   System.out.println("SQL Syntaxe Erreur.");
-	   System.out.println(sqle.getMessage());
-	  }
-	  String req = "insert into PERSONNE (nom, prenom, date_naissance, adresse, id_ville, id_sexe, "
-	    + "id_statut, telephone, email, pseudo, mdp, id_charge_clientele) " + "values(?,?,?,?,?,?,?,?,?,?,?,?)";
-	  try {
-	   this.reqprep = SQLconnexion.getInstance().creeConnexion().prepareStatement(req,
-	     Statement.RETURN_GENERATED_KEYS);
-	   this.reqprep.setString(1, x1.getNom());
-	   this.reqprep.setString(2, x1.getPrenom());
-	   this.reqprep.setDate(3, java.sql.Date.valueOf(x1.getDate_naissance()));
-	   this.reqprep.setString(4, x1.getAdresse());
-	   this.reqprep.setInt(5, x1.getSa_ville().getId_ville());
-	   this.reqprep.setInt(6, x1.getSon_sexe().getId_sexe());
-	   this.reqprep.setInt(7, x1.getSon_statut().getId_statut());
-	   this.reqprep.setString(8, x1.getTelephone());
-	   this.reqprep.setString(9, x1.getEmail());
-	   this.reqprep.setString(10, x1.getPseudo());
-	   this.reqprep.setString(11, x1.getMdp());
-	   if (x1.getSon_employe() != null) {
-	    this.reqprep.setInt(12, x1.getSon_employe().getId_employe());
-	   } else {
-	    this.reqprep.setNull(12, Types.INTEGER);
-	   }
-	   this.reqprep.executeUpdate();
-	   ResultSet resset = this.reqprep.getGeneratedKeys();
-	   while (resset.next()) {
-	    System.out.println("Ajoute");
-	    return resset.getInt(1);
-	   }
-	  } catch (SQLException sqle) {
-	   System.out.println("SQL Syntaxe Erreur.");
-	   System.out.println(sqle.getMessage());
-	  }
-	  return -1;
-	 }
+	public int create(Personne x1) {
+		String req0 = "select * from PERSONNE where pseudo=?";
+		try {
+			this.reqprep = SQLconnexion.getInstance().creeConnexion().prepareStatement(req0,
+					Statement.RETURN_GENERATED_KEYS);
+			this.reqprep.setString(1, x1.getPseudo());
+			this.reqprep.executeQuery();
+			ResultSet resset = this.reqprep.getGeneratedKeys();
+			while (resset.next()) {
+				System.out.println("Pseudo existe deja");
+				return -1;
+			}
+		} catch (SQLException sqle) {
+			System.out.println("SQL Syntaxe Erreur.");
+			System.out.println(sqle.getMessage());
+		}
+		String req = "insert into PERSONNE (nom, prenom, date_naissance, adresse, id_ville, id_sexe, "
+				+ "id_statut, telephone, email, pseudo, mdp, id_charge_clientele) " + "values(?,?,?,?,?,?,?,?,?,?,?,?)";
+		try {
+			this.reqprep = SQLconnexion.getInstance().creeConnexion().prepareStatement(req,
+					Statement.RETURN_GENERATED_KEYS);
+			this.reqprep.setString(1, x1.getNom());
+			this.reqprep.setString(2, x1.getPrenom());
+			this.reqprep.setDate(3, java.sql.Date.valueOf(x1.getDate_naissance()));
+			this.reqprep.setString(4, x1.getAdresse());
+			this.reqprep.setInt(5, x1.getSa_ville().getId_ville());
+			this.reqprep.setInt(6, x1.getSon_sexe().getId_sexe());
+			this.reqprep.setInt(7, x1.getSon_statut().getId_statut());
+			this.reqprep.setString(8, x1.getTelephone());
+			this.reqprep.setString(9, x1.getEmail());
+			this.reqprep.setString(10, x1.getPseudo());
+			this.reqprep.setString(11, x1.getMdp());
+			if (x1.getSon_employe() != null) {
+				this.reqprep.setInt(12, x1.getSon_employe().getId_employe());
+			} else {
+				this.reqprep.setNull(12, Types.INTEGER);
+			}
+			this.reqprep.executeUpdate();
+			ResultSet resset = this.reqprep.getGeneratedKeys();
+			while (resset.next()) {
+				System.out.println("Ajoute");
+				return resset.getInt(1);
+			}
+		} catch (SQLException sqle) {
+			System.out.println("SQL Syntaxe Erreur.");
+			System.out.println(sqle.getMessage());
+		}
+		return -1;
+	}
 
 	@Override
 	public void update(Personne x1) {
@@ -216,7 +217,7 @@ public class PersonneDAO implements DAO<Personne> {
 		}
 		return p;
 	}
-	
+
 	public boolean exists(String nom, String prenom, LocalDate date) throws SQLException {
 		boolean exists = false;
 		String req = "select * from PERSONNE where nom = ? and prenom = ? and date_naissance =?";
@@ -229,7 +230,7 @@ public class PersonneDAO implements DAO<Personne> {
 			ResultSet resset = this.reqprep.executeQuery();
 			if (resset.next()) {
 
-				System.out.println("le client a déja exist");
+				System.out.println("le client a d茅ja exist");
 			} else {
 				System.out.println("L'inscription success");
 			}
@@ -240,6 +241,7 @@ public class PersonneDAO implements DAO<Personne> {
 		return exists;
 
 	}
+
 	public boolean estClient(String pseudo, String mdp) {
 		boolean client = false;
 		String req = "select * from PERSONNE where pseudo=? and mdp=?";

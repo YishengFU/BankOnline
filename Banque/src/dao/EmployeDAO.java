@@ -150,9 +150,11 @@ public class EmployeDAO implements DAO<Employe> {
 				String res4 = resset.getString("mdp_emp");
 				String res5 = resset.getString("email_emp");
 				Personne p = PersonneDAO.getInstance().getById(resset.getInt("id_employe"));
-				this.al.add(new Employe(p.getId_pers(), p.getNom(), p.getPrenom(), p.getDate_naissance(),
+//				System.out.println(p);
+				Employe e=new Employe(p.getId_pers(), p.getNom(), p.getPrenom(), p.getDate_naissance(),
 						p.getAdresse(), p.getSa_ville(), p.getSon_sexe(), p.getSon_statut(), p.getTelephone(),
-						p.getEmail(), p.getPseudo(), p.getMdp(), null, res1, res2, res3, res4, res5));
+						p.getEmail(), p.getPseudo(), p.getMdp(), null, res1, res2, res3, res4, res5);
+				this.al.add(e);
 			}
 		} catch (SQLException sqle) {
 			System.out.println("SQL Syntaxe Erreur.");

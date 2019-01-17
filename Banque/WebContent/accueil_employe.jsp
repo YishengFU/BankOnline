@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="main.SQLconnexion" %>
-<%@ page import="pojo.Operation" %>
+<%@ page import="pojo.Personne" %>
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
 
       
@@ -86,7 +86,7 @@
         				<i><%
 	        				String prenom =(String)session.getAttribute("prenom");
 							String nom =(String) session.getAttribute("nom");
-							ArrayList<Personne> al_pers = EmployeDAO.getInstance().findCustomers(e.getId_employe());
+							ArrayList<Personne> al_pers = (ArrayList<Personne>) session.getAttribute("personnes");
 							out.println(prenom);
 							out.println(nom);
 						%>
@@ -95,7 +95,58 @@
       			</center>
         		</div>
 			<div class="sous-panel1"><!-- à faire -->
+						<div class = "tableaffichage">
+			<table align = "center">
+			<caption>
+			<h2></h2>
+			</caption>
+			<thead>
 			
+				<tr>
+					
+					<th width="200" align="center" valign="middle">Id</th>
+					<th width="400" align="center" valign="middle">Nom</th>
+					<th width="400" align="center" valign="middle">Prénom</th>
+					<th width="400" align="center" valign="middle">Date_naissance</th>
+					<th width="400" align="center" valign="middle">Adresse</th>
+					<th width="350" align="center" valign="middle">Ville</th>
+					<th width="350" align="center" valign="middle">Sexe</th>
+					<th width="350" align="center" valign="middle">Statut</th>
+					<th width="450" align="center" valign="middle">Téléphne</th>
+					<th width="450" align="center" valign="middle">Email</th>
+					<th width="350" align="center" valign="middle">Pseudo</th>
+					<th width="450" align="center" valign="middle">Employe</th>
+					<th width="350" align="center" valign="middle"></th>
+					
+				</tr>
+			</thead>
+				
+				<c:forEach   items="${al_pers}" var = "l" varStatus = "s">
+				<tbody>
+					<tr>
+						<td width="200" align="center" valign="middle"><c:out value="${l.getId_pers()}"/></td>
+						<td width="450" align="center" valign="middle"><c:out value="${l.getNom()}"/></td>
+						<td width="450" align="center" valign="middle"><c:out value="${l.getPrenom()}"/></td>
+						<td width="500" align="center" valign="middle"><c:out value="${l.getDate_naissance()}"/></td>
+						<td width="500" align="center" valign="middle"><c:out value="${l.getAdresse()}"/></td>
+						<td width="350" align="center" valign="middle"><c:out value="${l.getSa_ville().getLib_ville()}"/></td>
+						<td width="350" align="center" valign="middle"><c:out value="${l.getSon_sexe().getLib_sexe()}"/></td>
+						<td width="350" align="center" valign="middle"><c:out value="${l.getSon_statut().getLib_statut()}"/></td>
+						<td width="450" align="center" valign="middle"><c:out value="${l.getTelephone()}"/></td>
+						<td width="450" align="center" valign="middle"><c:out value="${l.getEmail()}"/></td>
+						<td width="350" align="center" valign="middle"><c:out value="${l.getPseudo()}"/></td>
+						<td width="450" align="center" valign="middle"><c:out value="${l.getSon_employe().getNom()+l.getSon_employe().getPrenom()}"/></td>
+						<td width="350" align="center" valign="middle"><a href = "" class = "modifier">Modifier</a></td>
+						
+						
+						
+						
+						</tr>
+				</tbody>
+				</c:forEach>
+			
+			</table>
+			</div>
 			</div>
 		</div>
 	</div>

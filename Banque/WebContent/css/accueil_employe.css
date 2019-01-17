@@ -11,6 +11,19 @@ table{
 	width: 100%;
 	margin-bottom:-10px;
 }
+
+modifer a {
+    display: block;
+    color:  RGB(46, 197, 240);
+    text-align: center;
+    text-decoration: none;
+}
+
+modifier a:hover {
+	color:white;
+    background-color: RGB(52, 194, 169);
+}
+
 tbody{
 	
 	display : block;
@@ -126,7 +139,7 @@ td{
     background-color: RGB(12, 108, 69);
 }
 
-.icon
+.icon  /*image de la banque*/
 { 
 	margin-bottom:15px;
 	margin-top:7px;
@@ -153,7 +166,7 @@ td{
 }
 
 
-#head .roundRectangle{
+#head .roundRectangle{ /* button */
 	color: white;
 	text-align:center;
 	border:2px solid RGB(52, 194, 169);
@@ -167,7 +180,7 @@ td{
 	box-shadow: 2px 1px 1px #888888;
 	z-index: 6;
 }
-#head .roundRectangle1{
+#head .roundRectangle1{ /* button */
 	color: white;
 	text-align:center;
 	border:2px solid RGB(33, 122, 77);
