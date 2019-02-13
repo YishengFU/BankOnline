@@ -1,1 +1,4 @@
-BankOnline is a semi-finished project, or we can say a model. (Java Server Pages, servlet, Server Tomcat, Junit) We would create a band on line. We have finished some operations, sign-up, login, transfer accounts, login-staff, administration of customers, administration of operations, etc. I am sorry that it can not be launched by you because of a problem of server Tomcat.
+BankOnline is a semi-finished project, or we can say a model. (Java Server Pages, servlet, Server Tomcat, Junit) 
+We would create a band on line. We have finished some operations, sign-up, login, transfer accounts, login-staff, administration of customers, administration of operations, etc. 
+I am sorry that it can not be launched by you because of a problem of server Tomcat. 
+Please configurate a localhost server Tomcat to use this web application.
